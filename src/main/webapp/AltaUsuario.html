@@ -62,11 +62,10 @@
         <img src="Imagenes/LogoMiTiempo.jpeg" alt="Logo reloj derretido" />
       </div>
       <div class="linksNav">
-        <a href="">Inicio</a>
+        <a href="http://localhost:8080/My_Time/Inicio.html">Inicio</a>
         <a href="">Perfil</a>
-        <a href="http://localhost:8080/My_Time/ListaUsuario.html"
-          >Alta Usuarios</a
-        >
+        <a href="http://localhost:8080/My_Time/ListaUsuario.html">Listado</a>
+        <a href="http://localhost:8080/My_Time/AltaUsuario.html">Alta Usuarios</a>
         <a href="">Turnos</a>
         <a href="">Solicitudes</a>
         <a href="">Soporte Técnico</a>
@@ -79,10 +78,8 @@
         <form
           name="AltaUsuario"
           action="InsertarUsuario"
-          method="post"
-          enctype="multipart/form-data"
-        >
-          <!-- cambiamos action="GestionUsuario" por el actual-->
+          method="post">
+          
           <label for="permiso">Tipo de usuario:</label>
           <select id="permiso" name="permiso">
             <option value="supervisor">Supervisor</option>
