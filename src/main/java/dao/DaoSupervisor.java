@@ -29,8 +29,8 @@ public class DaoSupervisor {
 
 	// Insertar supervisor o trabajador
 	public void insertar(Supervisor sup) throws SQLException {
-		
-		if("supervisor" .equals(sup.getPermiso()) ) {
+
+		if ("supervisor".equals(sup.getPermiso())) {
 			PreparedStatement ps = con.prepareStatement(
 					"INSERT supervisor (dni, puesto, nombre, apellido1, apellido2, correo, telefono, contrasena, permiso) VALUES (?,?,?,?,?,?,?,?,?)");
 			ps.setString(1, sup.getDni());
@@ -42,16 +42,15 @@ public class DaoSupervisor {
 			ps.setInt(7, sup.getTelefono());
 			ps.setString(8, sup.getDni());
 			ps.setString(9, sup.getPermiso());
-			
 
 			// Ejecutar la query
 			int filas = ps.executeUpdate();
 			System.out.println("Se han añadido " + filas + " filas");
 
 			ps.close();
-			
-		}else if("trabajador" .equals(sup.getPermiso())) {
-			
+
+		} else if ("trabajador".equals(sup.getPermiso())) {
+
 			PreparedStatement ps = con.prepareStatement(
 					"INSERT trabajador (dni, puesto, nombre, apellido1, apellido2, correo, telefono, contrasena, permiso) VALUES (?,?,?,?,?,?,?,?,?)");
 			ps.setString(1, sup.getDni());
@@ -69,46 +68,70 @@ public class DaoSupervisor {
 			System.out.println("Se han añadido " + filas + " filas");
 
 			ps.close();
-			
-		}else {
+
+		} else {
 			System.out.println("No ha entrado en los condicionales.");
 		}
 
-		
 	}
-	
-	//Listar Usuarios con todos los datos (salvo contraseña)
-	
-	public ArrayList <Supervisor> listar() throws SQLException{
-		
-		String sql = "SELECT * FROM supervisor";		//Actualizar query para que incluya BD trabajadores
-		
+
+	// Listar Usuarios con todos los datos (salvo contraseña)
+
+	public ArrayList<Supervisor> listar() throws SQLException {
+
+		String sql = "SELECT * FROM supervisor"; // Actualizar query para que incluya BD trabajadores
+
 		PreparedStatement ps = con.prepareStatement(sql);
 		ResultSet result = ps.executeQuery();
-		
-		ArrayList <Supervisor> sup = null;
-		
+
+		ArrayList<Supervisor> sup = null;
+
 		while (result.next()) {
-			if(sup == null) {
+			if (sup == null) {
 				sup = new ArrayList<Supervisor>();
 			}
-			sup.add(new Supervisor(result.getInt("idSupervisor"), result.getString("dni"), result.getString("puesto"), result.getString("nombre"), 
-					result.getString("apellido1"), result.getString("apellido2"), result.getString("correo"), result.getInt("telefono"),
-					 result.getString("permiso")));
+			sup.add(new Supervisor(result.getInt("idSupervisor"), result.getString("dni"), result.getString("puesto"), result.getString("nombre"),
+					result.getString("apellido1"), result.getString("apellido2"), result.getString("correo"),
+					result.getInt("telefono"), result.getString("permiso")));
 		}
 		return sup;
 	}
 
 
-	//JSON
+	/*
 	
+	public ArrayList<Supervisor> listarT() throws SQLException {
+
+		String sql = "SELECT * FROM trabajador"; // Actualizar query para que incluya BD trabajadores
+
+		PreparedStatement ps = con.prepareStatement(sql);
+		ResultSet result = ps.executeQuery();
+
+		ArrayList<Supervisor> sup = null;
+
+		while (result.next()) {
+			if (sup == null) {
+				sup = new ArrayList<Supervisor>();
+			}
+			sup.add(new Supervisor(result.getInt("idTrabajador"), result.getString("dni"), result.getString("puesto"),
+					result.getString("nombre"), result.getString("apellido1"), result.getString("apellido2"),
+					result.getString("correo"), result.getInt("telefono"), result.getString("permiso")));
+		}
+		return sup;
+	}
+	
+	*/
+
+
+	// JSON
+
 	public String dameJson() throws SQLException {
-		
+
 		String txtJSON = "";
 		Gson gson = new Gson();
 		txtJSON = gson.toJson(this.listar());
-		
+
 		return txtJSON;
 	}
-	
+
 }
