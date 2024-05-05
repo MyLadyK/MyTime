@@ -98,7 +98,10 @@ public class Supervisor {
 		this.apellido2 = apellido2;
 	}
 
-	//G&S
+	/**
+	 * Metodo de inclusion del idSupervisor en el objeto
+	 * @return devuelve el idSupervisor de tipo entero
+	 */
 	public int getIdSupervisor() {
 		return idSupervisor;
 	}

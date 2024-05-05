@@ -83,8 +83,8 @@
           enctype="multipart/form-data"
         >
           <!-- cambiamos action="GestionUsuario" por el actual-->
-          <label for="tipoUsuario">Tipo de usuario:</label>
-          <select id="tipoUsuario" name="tipoUsuario">
+          <label for="permiso">Tipo de usuario:</label>
+          <select id="permiso" name="permiso">
             <option value="supervisor">Supervisor</option>
             <option value="trabajador">Trabajador</option>
           </select>
@@ -93,18 +93,10 @@
             <li><label>DNI: </label> <input type="text" name="dni" /></li>
             <li><label>Puesto: </label> <input type="text" name="puesto" /></li>
             <li><label>Nombre: </label> <input type="text" name="nombre" /></li>
-            <li>
-              <label>Primer apellido: </label
-              ><input type="text" name="apellido1" />
-            </li>
-            <li>
-              <label>Segundo apellido: </label
-              ><input type="text" name="apellido2" />
-            </li>
+            <li><label>Primer apellido: </label><input type="text" name="apellido1" /></li>
+            <li><label>Segundo apellido: </label><input type="text" name="apellido2" /></li>
             <li><label>Correo: </label><input type="text" name="correo" /></li>
-            <li>
-              <label>Telefono: </label><input type="text" name="telefono" />
-            </li>
+            <li><label>Telefono: </label><input type="text" name="telefono" /></li>
             <li><input type="submit" value="Guardar" /></li>
           </ul>
         </form>

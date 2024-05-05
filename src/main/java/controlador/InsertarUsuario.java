@@ -54,7 +54,7 @@ public class InsertarUsuario extends HttpServlet {
 		String apellido2 = request.getParameter("apellido2");
 		String correo = request.getParameter("correo");
 		int telefono = Integer.parseInt(request.getParameter("telefono"));
-		String permiso = request.getParameter("tipoUsuario");
+		String permiso = request.getParameter("permiso");
 		
 		
 		Supervisor s1 = new Supervisor (dni, puesto, nombre, apellido1, apellido2, correo, telefono, permiso);
