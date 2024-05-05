@@ -6,7 +6,10 @@ function llamada(){
  }
  
  function listarTablaParcial(datos){
-    let html = "<table border='2'>";
+    let html = "<table class='tablaParcial'>";
+    
+    html += "<tr><th>Puesto</th><th>Nombre</th><th>Apellido 1</th><th>Apellido 2</th></tr>";
+    
     for(let i=0;i<datos.length;i++){    
         html += "<tr><td>"+datos[i].puesto+"</td>";
         html += "<td>"+datos[i].nombre+"</td>";
@@ -20,12 +23,12 @@ function llamada(){
  
  function listarTablaCompleta(datos){
 	 
-	 let html = "<table border='2'>";
-			
+	 let html = "<table class='tablaCompleta'>";
+	html += "<tr><th>ID Supervisor</th><th>DNI</th><th>Puesto</th><th>Nombre</th><th>Apellido 1</th><th>Apellido 2</th><th>Correo</th><th>Teléfono</th><th>Editar</th><th>Borrar</th></tr>";
 		for(let i=0;i<datos.length;i++){	
 						
 				html +="<tr><td>"+datos[i].idSupervisor+"</td>";
-				html += "<tr><td>"+datos[i].dni+"</td>";
+				html += "<td>"+datos[i].dni+"</td>";
 				html += "<td>"+datos[i].puesto+"</td>";
 				html += "<td>"+datos[i].nombre+"</td>";
 				html += "<td>"+datos[i].apellido1+"</td>";

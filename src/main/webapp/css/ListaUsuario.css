@@ -1,11 +1,9 @@
-ul{
-    list-style: none;
+.tablaParcial, .tablaCompleta {
+    margin: 2%;
+    padding: 2%;
+    border-collapse: collapse; /* Añade esta línea */
 }
 
-
-.listado{
-	margin: 2%;
-    padding: 2%;
+.tablaParcial td, .tablaParcial th, .tablaCompleta td, .tablaCompleta th {
     border: 2px solid yellow;
 }
-
