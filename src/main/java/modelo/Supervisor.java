@@ -6,6 +6,9 @@ import java.util.ArrayList;
 
 import dao.DaoSupervisor;
 
+/**
+ * Clase <strong>Supervisor</strong>
+ */
 public class Supervisor {
 	
 	private int idSupervisor;
@@ -18,13 +21,27 @@ public class Supervisor {
 	private int telefono;
 	private String permiso;
 	
+	/**
+	 * Constructor vacio para crear el objeto Supervisor
+	 */
 	
-	//Constructor vacío
 	public Supervisor() {
 		
 	}
 	
-	//Constructor con todo
+	/**
+	 * Constructor con todos los atributos
+	 * @param idSupervisor Atributo que indica el id de <strong>Supervisor</strong>
+	 * @param dni Atributo que indica el dni del <strong>Supervisor</strong>
+	 * @param puesto Atributo que indica el puesto de trabajo asignado al <strong>Supervisor</strong>
+	 * @param nombre Atributo que indica el nombre del <strong>Supervisor</strong>
+	 * @param apellido1 Atributo que indica el primer apellido del <strong>Supervisor</strong>
+	 * @param apellido2 Atributo que indica el segundo apellido del <strong>Supervisor</strong>
+	 * @param correo Atributo que indica la dirección de correo electrónico del <strong>Supervisor</strong>
+	 * @param telefono Atributo que indica el número de teléfono del <strong>Supervisor</strong>
+	 * @param permiso Atributo que indica el tipo de permiso del <strong>Supervisor</strong>
+	 */
+	
 	public Supervisor(int idSupervisor, String dni, String puesto, String nombre, String apellido1, String apellido2,
 			String correo, int telefono, String permiso) {
 		super();
@@ -39,7 +56,18 @@ public class Supervisor {
 		this.permiso =permiso;
 	}
 	
-	//Constructor con todo salvo id para insertar en BD 
+	/**
+	 * Constructor con todos los atributos salvo idSupervisor para insertar en la <strong>Base de Datos</strong> 
+	 * @param dni Atributo que indica el dni del <strong>Supervisor</strong>
+	 * @param puesto Atributo que indica el puesto de trabajo asignado al <strong>Supervisor</strong>
+	 * @param nombre Atributo que indica el nombre del <strong>Supervisor</strong>
+	 * @param apellido1 Atributo que indica el primer apellido del <strong>Supervisor</strong>
+	 * @param apellido2 Atributo que indica el segundo apellido del <strong>Supervisor</strong>
+	 * @param correo Atributo que indica la dirección de correo electrónico del <strong>Supervisor</strong>
+	 * @param telefono Atributo que indica el número de teléfono del <strong>Supervisor</strong>
+	 * @param permiso Atributo que indica el tipo de permiso del <strong>Supervisor</strong>
+	 */
+	
 	public Supervisor(String dni, String puesto, String nombre, String apellido1, String apellido2,
 			String correo, int telefono, String permiso) {
 		super();
@@ -51,11 +79,17 @@ public class Supervisor {
 		this.correo = correo;
 		this.telefono = telefono;
 		this.permiso = permiso;
-		
 	}
 
+	/**
+	 * Constructor para la listar de forma escueta los datos almacenados en la <strong> Base de Datos</strong>
+	 * @param puesto Atributo que indica el puesto de trabajo asignado al <strong>Supervisor</strong>
+	 * @param nombre Atributo que indica el nombre del <strong>Supervisor</strong>
+	 * @param apellido1 Atributo que indica el primer apellido del <strong>Supervisor</strong>
+	 * @param apellido2 Atributo que indica el segundo apellido del <strong>Supervisor</strong>
+	 * @param correo Atributo que indica la dirección de correo electrónico del <strong>Supervisor</strong>
+	 */
 	
-	//Constructor para la lista corta de datos y usarlo en el método listar
 	public Supervisor(String puesto, String nombre, String apellido1, String apellido2, String correo) {
 		super();
 		this.puesto = puesto;
@@ -130,7 +164,6 @@ public class Supervisor {
 	}
 
 	public String getPermiso() {
-		//System.out.println("Permiso en supervisor." +permiso);
 		return permiso;
 	}
 
@@ -139,15 +172,20 @@ public class Supervisor {
 	}
 
 	
-	//Método insertar
+	/**
+	 * Metodo insertar, el cual <strong>añade</strong> los datos de los usuarios mediante un formulario 
+	 * @throws SQLException
+	 */
 	public void insertar() throws SQLException {
-		// DaoSupervisor dao = new DaoSupervisor(); //Sin patrón Singleton
-		// dao.insertar(this);
 		DaoSupervisor.getInstance().insertar(this); // Con patrón Singleton
 	}
 	
 	
-	// Método listar
+	/**
+	 * Metodo listar, el cual <strong>lista</strong> los datos de los usuarios previamente insertados
+	 * @return
+	 * @throws SQLException
+	 */
 		public ArrayList<Supervisor> listar() throws SQLException{
 			return DaoSupervisor.getInstance().listar();
 		}
