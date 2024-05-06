@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Usuario</title>
+    <link rel="stylesheet" href="css/Comun.css">
+    <link rel="stylesheet" href="css/ModificarUsuario.css">
+    <script src="js/ModificarUsuario.js" type="text/javascript"></script>
+</head>
+<body>
+    
+    <div class="contenedorBody">
+      <h1>Modificar Usuario</h1>
+      <div class="formulario">
+        <form name="ModificarUsuario"action="ModificarUsuario"method="post" onsubmit="return confirm('¿Desea guardar los cambios?');">
+          
+          <label for="permiso">Tipo de usuario:</label>
+          <select id="permiso" name="permiso">
+            <option value="supervisor">Supervisor</option>
+            <option value="trabajador">Trabajador</option>
+          </select>
+
+          <ul>
+			<li><input type="hidden" id="idSupervisor" name="idSupervisor"></li>
+            <li><label>DNI: </label> <input type="text" name="dni" /></li>
+            <li><label>Puesto: </label> <input type="text" name="puesto" /></li>
+            <li><label>Nombre: </label> <input type="text" name="nombre" /></li>
+            <li><label>Primer apellido: </label><input type="text" name="apellido1" /></li>
+            <li><label>Segundo apellido: </label><input type="text" name="apellido2" /></li>
+            <li><label>Correo: </label><input type="text" name="correo" /></li>
+            <li><label>Telefono: </label><input type="text" name="telefono" /></li>
+            
+            <li><input type="submit" value="Guardar cambios" /></li>
+          </ul>
+        </form>
+      </div> 
+    </div>
+
+    <button id="botonVolver">Volver</button>
+</body>
+</html>

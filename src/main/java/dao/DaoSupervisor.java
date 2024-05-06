@@ -121,6 +121,57 @@ public class DaoSupervisor {
 	}
 	
 	*/
+	public void modificar(Supervisor sup) throws SQLException {
+	    PreparedStatement ps;
+	    ps = con.prepareStatement(
+                "UPDATE supervisor SET puesto = ?, nombre = ?, apellido1 = ?, apellido2 = ?, correo = ?, telefono = ? WHERE dni = ?");
+	    
+	    ps.setString(1, sup.getPuesto());
+	    ps.setString(2, sup.getNombre());
+	    ps.setString(3, sup.getApellido1());
+	    ps.setString(4, sup.getApellido2());
+	    ps.setString(5, sup.getCorreo());
+	    ps.setInt(6, sup.getTelefono());
+	    ps.setString(7, sup.getDni());
+	
+	
+	/*
+	
+	public void modificar(Supervisor sup) throws SQLException {
+	    PreparedStatement ps;
+	    if ("supervisor".equals(sup.getPermiso())) {
+	        ps = con.prepareStatement(
+	                "UPDATE supervisor SET puesto = ?, nombre = ?, apellido1 = ?, apellido2 = ?, correo = ?, telefono = ?, permiso = ? WHERE dni = ?");
+	    } else if ("trabajador".equals(sup.getPermiso())) {
+	        ps = con.prepareStatement(
+	                "UPDATE trabajador SET puesto = ?, nombre = ?, apellido1 = ?, apellido2 = ?, correo = ?, telefono = ?, permiso = ? WHERE dni = ?");
+	    } else {
+	        System.out.println("No ha entrado en los condicionales.");
+	        return;
+	    }
+
+	    
+	    ps.setString(1, sup.getPuesto());
+	    ps.setString(2, sup.getNombre());
+	    ps.setString(3, sup.getApellido1());
+	    ps.setString(4, sup.getApellido2());
+	    ps.setString(5, sup.getCorreo());
+	    ps.setInt(6, sup.getTelefono());
+	    ps.setString(7, sup.getPermiso());
+	    ps.setString(8, sup.getDni());
+	    
+
+	    */
+	    
+	    // Ejecutar la query
+	    int filas = ps.executeUpdate();
+	    System.out.println("Se han modificado " + filas + " filas");
+
+	    ps.close();
+	}
+	
+	
+	
 
 
 	// JSON
@@ -133,5 +184,8 @@ public class DaoSupervisor {
 
 		return txtJSON;
 	}
+
+		
+	
 
 }

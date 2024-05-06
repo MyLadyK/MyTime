@@ -39,4 +39,14 @@
     <servlet-name>Sesion</servlet-name>
     <url-pattern>/Sesion</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ModificarUsuario</display-name>
+    <servlet-name>ModificarUsuario</servlet-name>
+    <servlet-class>controlador.ModificarUsuario</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ModificarUsuario</servlet-name>
+    <url-pattern>/ModificarUsuario</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -35,7 +35,7 @@ function llamada(){
 				html += "<td>"+datos[i].apellido2+"</td>";
 				html += "<td>"+datos[i].correo+"</td>";
 				html += "<td>"+datos[i].telefono+"</td>";
-				html += "<td><a href='ListaUsuario.html?id="+datos[i].idSupervisor+"&op=2'>Editar</a></td><td><a href='javascript:borrar("+datos[i].idSupervisor+")'>Borrar</a></td>";
+				html += "<td><a href='ModificarUsuario.html?id="+datos[i].idSupervisor+"'>Editar</a></td><td><a href='javascript:borrar("+datos[i].idSupervisor+")'>Borrar</a></td>";
 				html +="</tr>";
 				}
 		
