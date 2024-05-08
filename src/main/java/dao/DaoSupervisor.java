@@ -39,7 +39,7 @@ public class DaoSupervisor {
 			ps.setString(4, sup.getApellido1());
 			ps.setString(5, sup.getApellido2());
 			ps.setString(6, sup.getCorreo());
-			ps.setInt(7, sup.getTelefono());
+			ps.setString(7, sup.getTelefono());
 			ps.setString(8, sup.getDni());
 			ps.setString(9, sup.getPermiso());
 
@@ -59,7 +59,7 @@ public class DaoSupervisor {
 			ps.setString(4, sup.getApellido1());
 			ps.setString(5, sup.getApellido2());
 			ps.setString(6, sup.getCorreo());
-			ps.setInt(7, sup.getTelefono());
+			ps.setString(7, sup.getTelefono());
 			ps.setString(8, sup.getDni());
 			ps.setString(9, sup.getPermiso());
 
@@ -92,7 +92,7 @@ public class DaoSupervisor {
 			}
 			sup.add(new Supervisor(result.getInt("idSupervisor"), result.getString("dni"), result.getString("puesto"), result.getString("nombre"),
 					result.getString("apellido1"), result.getString("apellido2"), result.getString("correo"),
-					result.getInt("telefono"), result.getString("permiso")));
+					result.getString("telefono"), result.getString("permiso")));
 		}
 		return sup;
 	}
@@ -121,18 +121,81 @@ public class DaoSupervisor {
 	}
 	
 	*/
+	
+	/*
+	//Modificar de Antonio
+	
+	public Supervisor modificar (int idSupervisor) throws SQLException {	//Se ha pasado de void a Supervisor
+		String sql = "SELECT * FROM supervisor WHERE idSupervisor=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, idSupervisor);
+		
+		ResultSet rs = ps.executeQuery();
+		
+		rs.next();
+		
+		Supervisor sup = new Supervisor(rs.getInt("idSupervisor"), rs.getString("dni"), rs.getString("puesto"), rs.getString("nombre"),
+					rs.getString("apellido1"), rs.getString("apellido2"), rs.getString("correo"),
+					rs.getInt("telefono"), rs.getString("permiso"));
+		return sup;	//Se ha añadido return sup 
+		
+	}
+	*/
+	
+	
+	// Cosecha propia
+	
+	
+	
 	public void modificar(Supervisor sup) throws SQLException {
 	    PreparedStatement ps;
-	    ps = con.prepareStatement(
-                "UPDATE supervisor SET puesto = ?, nombre = ?, apellido1 = ?, apellido2 = ?, correo = ?, telefono = ? WHERE dni = ?");
+	    if("supervisor".equals(sup.getPermiso())) {
+	    	
+	    	
+	    	System.out.println(sup.getDni() + sup.getPuesto() + sup.getNombre() + sup.getApellido1() + sup.getApellido2() + sup.getCorreo() + sup.getTelefono() + sup.getIdSupervisor());
+	    	
+	    	ps = con.prepareStatement(
+	                "UPDATE supervisor SET dni = ?, puesto = ?, nombre = ?, apellido1 = ?, apellido2 = ?, correo = ?, telefono = ? WHERE idSupervisor = ?");
+	    	ps.setString(1, sup.getDni());
+		    ps.setString(2, sup.getPuesto());
+		    ps.setString(3, sup.getNombre());
+		    ps.setString(4, sup.getApellido1());
+		    ps.setString(5, sup.getApellido2());
+		    ps.setString(6, sup.getCorreo());
+		    ps.setString(7, sup.getTelefono());
+		    ps.setInt(8, sup.getIdSupervisor());
+		   
+		    
+		    int filas = ps.executeUpdate();
+		    System.out.println("Se han modificado " +filas+ " filas");
+		    
+		    ps.close();
+		    
+	    }else if("trabajador".equals(sup.getPermiso())){
+	    	
+	    	ps = con.prepareStatement(
+	                "UPDATE trabajador SET dni = ?, puesto = ?, nombre = ?, apellido1 = ?, apellido2 = ?, correo = ?, telefono = ? WHERE idTrabajador = ?");
+		    
+	    	ps.setString(1, sup.getDni());
+		    ps.setString(2, sup.getPuesto());
+		    ps.setString(3, sup.getNombre());
+		    ps.setString(4, sup.getApellido1());
+		    ps.setString(5, sup.getApellido2());
+		    ps.setString(6, sup.getCorreo());
+		    ps.setString(7, sup.getTelefono());
+		   // ps.setInt(8, sup.getIdTrabajador());
+		    
+		    int filas = ps.executeUpdate();
+		    System.out.println("Se han modificado " +filas+ " filas");
+		    
+		    ps.close();
+	    	
+	    }else {
+	    	System.out.println("No ha entrado en los condicionales de modificar");
+	    }
 	    
-	    ps.setString(1, sup.getPuesto());
-	    ps.setString(2, sup.getNombre());
-	    ps.setString(3, sup.getApellido1());
-	    ps.setString(4, sup.getApellido2());
-	    ps.setString(5, sup.getCorreo());
-	    ps.setInt(6, sup.getTelefono());
-	    ps.setString(7, sup.getDni());
+	    
+	}
 	
 	
 	/*
@@ -161,7 +224,6 @@ public class DaoSupervisor {
 	    ps.setString(8, sup.getDni());
 	    
 
-	    */
 	    
 	    // Ejecutar la query
 	    int filas = ps.executeUpdate();
@@ -170,8 +232,7 @@ public class DaoSupervisor {
 	    ps.close();
 	}
 	
-	
-	
+	*/
 
 
 	// JSON
@@ -185,7 +246,5 @@ public class DaoSupervisor {
 		return txtJSON;
 	}
 
-		
 	
-
 }

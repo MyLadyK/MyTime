@@ -18,7 +18,7 @@ public class Supervisor {
 	private String apellido1;
 	private String apellido2;
 	private String correo;
-	private int telefono;
+	private String telefono;
 	private String permiso;
 	
 	/**
@@ -43,7 +43,7 @@ public class Supervisor {
 	 */
 	
 	public Supervisor(int idSupervisor, String dni, String puesto, String nombre, String apellido1, String apellido2,
-			String correo, int telefono, String permiso) {
+			String correo, String telefono, String permiso) {
 		super();
 		this.idSupervisor = idSupervisor;
 		this.dni = dni;
@@ -69,7 +69,7 @@ public class Supervisor {
 	 */
 	
 	public Supervisor(String dni, String puesto, String nombre, String apellido1, String apellido2,
-			String correo, int telefono, String permiso) {
+			String correo, String telefono, String permiso) {
 		super();
 		this.dni = dni;
 		this.puesto = puesto;
@@ -158,11 +158,11 @@ public class Supervisor {
 		this.correo = correo;
 	}
 
-	public int getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(int telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 
@@ -193,6 +193,12 @@ public class Supervisor {
 			return DaoSupervisor.getInstance().listar();
 		}
 	
+		/*
+		public void modificar(int idSupervisor) throws SQLException {
+			DaoSupervisor dao = new DaoSupervisor();
+			Supervisor sup = dao.modificar(idSupervisor);
+		}
+		*/
 	
 	
 	//ToString

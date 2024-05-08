@@ -1,6 +1,15 @@
 
 
 window.onload = function() {
+	
+	var urlParams = new URLSearchParams(window.location.search);
+	var idSupervisor = urlParams.get('id');
+	
+	console.log('idSupervisor obtenido de la URL: ', idSupervisor);
+
+    document.getElementById('idSupervisor').value = idSupervisor;
+    
+    
     // Obtén el botón por su id
     var botonVolver = document.getElementById('botonVolver');
 
