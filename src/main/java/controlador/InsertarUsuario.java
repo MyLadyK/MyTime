@@ -53,7 +53,7 @@ public class InsertarUsuario extends HttpServlet {
 		String apellido1 = request.getParameter("apellido1");
 		String apellido2 = request.getParameter("apellido2");
 		String correo = request.getParameter("correo");
-		int telefono = Integer.parseInt(request.getParameter("telefono"));
+		String telefono = request.getParameter("telefono");
 		String permiso = request.getParameter("permiso");
 		
 		

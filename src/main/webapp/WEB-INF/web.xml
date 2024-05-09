@@ -49,4 +49,14 @@
     <servlet-name>ModificarUsuario</servlet-name>
     <url-pattern>/ModificarUsuario</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EliminarUsuario</display-name>
+    <servlet-name>EliminarUsuario</servlet-name>
+    <servlet-class>controlador.EliminarUsuario</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EliminarUsuario</servlet-name>
+    <url-pattern>/EliminarUsuario</url-pattern>
+  </servlet-mapping>
 </web-app>

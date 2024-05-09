@@ -81,6 +81,17 @@ public class Supervisor {
 		this.permiso = permiso;
 	}
 
+	public Supervisor(String dni, String puesto, String nombre, String apellido1, String apellido2,
+			String correo, String telefono) {
+		super();
+		this.dni = dni;
+		this.puesto = puesto;
+		this.nombre = nombre;
+		this.apellido1 = apellido1;
+		this.apellido2 = apellido2;
+		this.correo = correo;
+		this.telefono = telefono;
+	}
 	/**
 	 * Constructor para la listar de forma escueta los datos almacenados en la <strong> Base de Datos</strong>
 	 * @param puesto Atributo que indica el puesto de trabajo asignado al <strong>Supervisor</strong>
@@ -193,12 +204,27 @@ public class Supervisor {
 			return DaoSupervisor.getInstance().listar();
 		}
 	
-		/*
-		public void modificar(int idSupervisor) throws SQLException {
+		public void obtenerPorId(int id) throws SQLException {
+			
 			DaoSupervisor dao = new DaoSupervisor();
-			Supervisor sup = dao.modificar(idSupervisor);
+			Supervisor aux = dao.obtenerPorID(idSupervisor);
+			
+			this.setIdSupervisor(aux.getIdSupervisor());
+			this.setDni(aux.getDni());
+			this.setPuesto(aux.getPuesto());
+			this.setNombre(aux.getNombre());
+			this.setApellido1(aux.getApellido1());
+			this.setApellido2(aux.getApellido2());
+			this.setCorreo(aux.getCorreo());
+			this.setTelefono(aux.getTelefono());
+			this.setPermiso(aux.getPermiso());
 		}
-		*/
+		
+		public void modificar() throws SQLException {
+			DaoSupervisor dao = new DaoSupervisor();
+			dao.modificar(this);
+		}
+		
 	
 	
 	//ToString

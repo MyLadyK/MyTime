@@ -183,7 +183,7 @@ public class DaoSupervisor {
 		    ps.setString(5, sup.getApellido2());
 		    ps.setString(6, sup.getCorreo());
 		    ps.setString(7, sup.getTelefono());
-		   // ps.setInt(8, sup.getIdTrabajador());
+		   //ps.setInt(8, sup.getIdTrabajador());
 		    
 		    int filas = ps.executeUpdate();
 		    System.out.println("Se han modificado " +filas+ " filas");
@@ -196,6 +196,23 @@ public class DaoSupervisor {
 	    
 	    
 	}
+	
+	public Supervisor obtenerPorID(int idSupervisor) throws SQLException {
+		
+		String sql = "SELECT * FROM usuarios WHERE id=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, idSupervisor);
+		
+		ResultSet rs = ps.executeQuery();
+		
+		rs.next();
+		
+		Supervisor sup= new Supervisor (rs.getInt("idSupervisor"), rs.getString("dni"), rs.getString("puesto"),rs.getString("dni"), rs.getString("nombre"),
+				rs.getString("apellido1"), rs.getString("apellido2"),rs.getString("correo"), rs.getString("telefono"));
+		
+		return sup;
+		
+}
 	
 	
 	/*
