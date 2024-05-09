@@ -12,10 +12,10 @@ window.onload = function() {
 
     var formModificarUsuario = document.forms['ModificarUsuario'];
     formModificarUsuario.addEventListener('submit', function(event) {
-        event.preventDefault();  // Evita que el formulario se envíe de la manera predeterminada
+        event.preventDefault();  
 
         if (!confirm('¿Desea guardar los cambios?')) {
-            return;  // Si el usuario no confirma, no hagas nada
+            return;  // Confirmar los cambios
         }
 
         var data = {
@@ -40,45 +40,10 @@ window.onload = function() {
         .then(response => response.json())
         .then(data => {
             console.log('Success:', data);
-            window.location.href = 'ListaUsuario.html';  // Redirige después de que la solicitud se haya completado con éxito
+            window.location.href = 'ListaUsuario.html';  // Redirige a ListaUsuario
         })
         .catch((error) => {
             console.error('Error:', error);
         });
     });
 }
-
-
-
-
-
-
-/* Con método doPost, que no modifica
-
-window.onload = function() {
-	
-	var urlParams = new URLSearchParams(window.location.search);
-	var idSupervisor = urlParams.get('id');
-	
-	console.log('idSupervisor obtenido de la URL: ', idSupervisor);
-
-    document.getElementById('idSupervisor').value = idSupervisor;
-    
-    
-    // Obtén el botón por su id
-    var botonVolver = document.getElementById('botonVolver');
-
-    // Añade un event listener para el evento click
-    botonVolver.addEventListener('click', function() {
-        window.location.href = 'ListaUsuario.html';
-    });
-
-    // Obtén el formulario por su nombre
-    var formModificarUsuario = document.forms['ModificarUsuario'];
-
-    // Añade un event listener para el evento submit
-    formModificarUsuario.addEventListener('submit', function() {
-        return confirm('¿Desea guardar los cambios?');
-    });
-}
-*/

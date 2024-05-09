@@ -5,7 +5,11 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import modelo.Supervisor;
+
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
 
 /**
  * Servlet implementation class EliminarUsuario
@@ -25,16 +29,42 @@ public class EliminarUsuario extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
 	}
+	
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	    int idSupervisor = Integer.parseInt(request.getParameter("id"));
+
+	    Supervisor sup = new Supervisor();
+	    sup.setIdSupervisor(idSupervisor);
+
+	    try {
+	        sup.eliminar();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        System.out.println("Error al eliminar usuario");
+	    }
+
+	    // Configura la respuesta para devolver JSON
+	    response.setContentType("application/json");
+	    response.setCharacterEncoding("UTF-8");
+
+	    // Crea un objeto JSON
+	    String json = "{ \"mensaje\": \"Usuario eliminado\" }";
+
+	    // Escribe el JSON en la respuesta
+	    PrintWriter out = response.getWriter();
+	    out.print(json);
+	    out.flush();
+	}
+	
+	
 
 }

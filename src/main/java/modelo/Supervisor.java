@@ -204,27 +204,16 @@ public class Supervisor {
 			return DaoSupervisor.getInstance().listar();
 		}
 	
-		public void obtenerPorId(int id) throws SQLException {
-			
-			DaoSupervisor dao = new DaoSupervisor();
-			Supervisor aux = dao.obtenerPorID(idSupervisor);
-			
-			this.setIdSupervisor(aux.getIdSupervisor());
-			this.setDni(aux.getDni());
-			this.setPuesto(aux.getPuesto());
-			this.setNombre(aux.getNombre());
-			this.setApellido1(aux.getApellido1());
-			this.setApellido2(aux.getApellido2());
-			this.setCorreo(aux.getCorreo());
-			this.setTelefono(aux.getTelefono());
-			this.setPermiso(aux.getPermiso());
-		}
 		
 		public void modificar() throws SQLException {
 			DaoSupervisor dao = new DaoSupervisor();
 			dao.modificar(this);
-		}
+		}	
 		
+		public void eliminar() throws SQLException {
+			DaoSupervisor dao = new DaoSupervisor();
+			dao.eliminar(this);
+		}
 	
 	
 	//ToString
