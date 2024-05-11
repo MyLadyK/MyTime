@@ -51,20 +51,20 @@ public class ModificarUsuario extends HttpServlet {
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 	    // Leer el cuerpo de la solicitud y analizarlo como objeto JSON
-	    StringBuilder sb = new StringBuilder();
+	    StringBuilder stringBuilder = new StringBuilder();
 	    String line;
 
 	    try {
-	        BufferedReader reader = request.getReader();
-	        while ((line = reader.readLine()) != null) {
-	            sb.append(line);
+	        BufferedReader bReader = request.getReader();
+	        while ((line = bReader.readLine()) != null) {
+	            stringBuilder.append(line);
 	        }
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    }
 
 	    Gson gson = new Gson();
-	    Supervisor sup = gson.fromJson(sb.toString(), Supervisor.class);
+	    Supervisor sup = gson.fromJson(stringBuilder.toString(), Supervisor.class);
 
 	    // Sup es un objeto Supervisor con los datos de la solicitud.
 	    

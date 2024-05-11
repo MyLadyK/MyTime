@@ -178,11 +178,17 @@ public class DaoSupervisor {
 	    } else {
 	        System.out.println("No ha entrado en los condicionales de eliminar");
 	    }
-	    */
-	    
+	    */ 
 	}
 	
 
+	//Login
+	
+	
+	
+	
+	
+	
 
 	// JSON
 
@@ -195,7 +201,22 @@ public class DaoSupervisor {
 		return txtJSON;
 	}
 
-	
+	/*
+	public Supervisor logIn (Supervisor sup, String contrasena) {
+		String sql = "SELECT FROM supervisor WHERE correo = ? AND contrasena=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, sup.getCorreo());
+		ps.setString(2, contrasena);
+		
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		
+		Supervisor s = new Supervisor (rs.getString("correo"), rs.getString("contrasena"), rs.getString("permiso"));
+		
+		return s;
+		
+	}
 
+*/
 	
 }
