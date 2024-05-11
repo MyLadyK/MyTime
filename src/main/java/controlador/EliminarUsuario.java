@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import modelo.Supervisor;
+import modelo.Usuario;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -40,13 +41,13 @@ public class EliminarUsuario extends HttpServlet {
 	}
 	
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    int idSupervisor = Integer.parseInt(request.getParameter("id"));
+	    int idUsuario = Integer.parseInt(request.getParameter("id"));
 
-	    Supervisor sup = new Supervisor();
-	    sup.setIdSupervisor(idSupervisor);
+	    Usuario us = new Usuario();
+	    us.setIdSupervisor(idUsuario);
 
 	    try {
-	        sup.eliminar();
+	        us.eliminar();
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	        System.out.println("Error al eliminar usuario");

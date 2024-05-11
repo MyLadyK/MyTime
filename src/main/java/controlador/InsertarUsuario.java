@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import modelo.Supervisor;
+import modelo.Usuario;
 
 /**
  * Servlet implementation class InsertarUsuario
@@ -57,11 +58,11 @@ public class InsertarUsuario extends HttpServlet {
 		String permiso = request.getParameter("permiso");
 		
 		
-		Supervisor s1 = new Supervisor (dni, puesto, nombre, apellido1, apellido2, correo, telefono, permiso);
-		System.out.println("Se ha añadido usuario: " +s1.toString());
+		Usuario us1 = new Usuario (dni, puesto, nombre, apellido1, apellido2, correo, telefono, permiso);
+		System.out.println("Se ha añadido usuario: " +us1.toString());
 		
 		try {
-			s1.insertar();
+			us1.insertar();
 		} catch (SQLException e) {
 			e.printStackTrace(System.out);
 			System.out.println("Error al añadir.");

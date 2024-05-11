@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import modelo.Supervisor;
+import modelo.Usuario;
 
 /**
  * Servlet implementation class ModificarUsuario
@@ -64,13 +65,13 @@ public class ModificarUsuario extends HttpServlet {
 	    }
 
 	    Gson gson = new Gson();
-	    Supervisor sup = gson.fromJson(stringBuilder.toString(), Supervisor.class);
+	    Usuario us = gson.fromJson(stringBuilder.toString(), Usuario.class);
 
 	    // Sup es un objeto Supervisor con los datos de la solicitud.
 	    
 
 	    try {
-	        sup.modificar();
+	        us.modificar();
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	        System.out.println("T/C modficar doPut");

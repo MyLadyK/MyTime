@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ArrayList;
 
-import dao.DaoSupervisor;
+import dao.DaoUsuario;
 
 /**
  * Clase <strong>Supervisor</strong>
@@ -185,14 +185,14 @@ public class Supervisor {
 		this.permiso = permiso;
 	}
 
-	
+	/*
 	/**
 	 * Metodo insertar, el cual <strong>añade</strong> los datos de los usuarios mediante un formulario 
 	 * @throws SQLException
 	 */
-	public void insertar() throws SQLException {
-		DaoSupervisor.getInstance().insertar(this); // Con patrón Singleton
-	}
+	//public void insertar() throws SQLException {
+		//DaoUsuario.getInstance().insertar(this); // Con patrón Singleton
+	//}
 	
 	
 	/**
@@ -200,22 +200,24 @@ public class Supervisor {
 	 * @return
 	 * @throws SQLException
 	 */
-		public ArrayList<Supervisor> listar() throws SQLException{
-			return DaoSupervisor.getInstance().listar();
+		
+	/*
+	public ArrayList<Supervisor> listar() throws SQLException{
+			return DaoUsuario.getInstance().listar();
 		}
 	
 		
 		public void modificar() throws SQLException {
-			DaoSupervisor dao = new DaoSupervisor();
+			DaoUsuario dao = new DaoUsuario();
 			dao.modificar(this);
 		}	
 		
 		public void eliminar() throws SQLException {
-			DaoSupervisor dao = new DaoSupervisor();
+			DaoUsuario dao = new DaoUsuario();
 			dao.eliminar(this);
 		}
 	
-	
+	*/
 	//ToString
 	@Override
 	public String toString() {

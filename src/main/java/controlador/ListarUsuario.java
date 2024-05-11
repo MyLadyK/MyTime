@@ -5,7 +5,7 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import dao.DaoSupervisor;
+import dao.DaoUsuario;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.http.HttpServlet;
@@ -36,7 +36,7 @@ public class ListarUsuario extends HttpServlet {
 		
 		try {
 			PrintWriter out = response.getWriter();
-			DaoSupervisor dao = new DaoSupervisor();
+			DaoUsuario dao = new DaoUsuario();
 			String resultado = dao.dameJson();
 			
 			System.out.println(resultado);	//Por consola
