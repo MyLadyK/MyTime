@@ -1,9 +1,9 @@
 
 window.onload = function() {
     var urlParams = new URLSearchParams(window.location.search);
-    var idSupervisor = urlParams.get('id');
-    console.log('idSupervisor obtenido de la URL: ', idSupervisor);
-    document.getElementById('idSupervisor').value = idSupervisor;
+    var idUsuario = urlParams.get('id');
+    console.log('idUsuario obtenido de la URL: ', idUsuario);
+    document.getElementById('idUsuario').value = idUsuario;
 
     var botonVolver = document.getElementById('botonVolver');
     botonVolver.addEventListener('click', function() {
@@ -19,7 +19,7 @@ window.onload = function() {
         }
 
         var data = {
-            idSupervisor: formModificarUsuario.idSupervisor.value,
+            idSupervisor: formModificarUsuario.idUsuario.value,
             dni: formModificarUsuario.dni.value,
             puesto: formModificarUsuario.puesto.value,
             nombre: formModificarUsuario.nombre.value,

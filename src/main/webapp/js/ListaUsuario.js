@@ -27,7 +27,7 @@ function llamada(){
 	html += "<tr><th>ID Supervisor</th><th>DNI</th><th>Puesto</th><th>Nombre</th><th>Apellido 1</th><th>Apellido 2</th><th>Correo</th><th>Teléfono</th><th>Editar</th><th>Borrar</th></tr>";
 		for(let i=0;i<datos.length;i++){	
 						
-				html +="<tr><td>"+datos[i].idSupervisor+"</td>";
+				html +="<tr><td>"+datos[i].idUsuario+"</td>";
 				html += "<td>"+datos[i].dni+"</td>";
 				html += "<td>"+datos[i].puesto+"</td>";
 				html += "<td>"+datos[i].nombre+"</td>";
@@ -35,7 +35,7 @@ function llamada(){
 				html += "<td>"+datos[i].apellido2+"</td>";
 				html += "<td>"+datos[i].correo+"</td>";
 				html += "<td>"+datos[i].telefono+"</td>";
-				html += "<td><a href='ModificarUsuario.html?id="+datos[i].idSupervisor+"'>Editar</a></td><td><a href='javascript:borrar("+datos[i].idSupervisor+")'>Borrar</a></td>";
+				html += "<td><a href='ModificarUsuario.html?id="+datos[i].idUsuario+"'>Editar</a></td><td><a href='javascript:borrar("+datos[i].idUsuario+")'>Borrar</a></td>";
 				html +="</tr>";
 				}
 		

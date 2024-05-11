@@ -1,6 +1,6 @@
-function borrar(idSupervisor) {
+function borrar(idUsuario) {
     if (confirm('¿Desea eliminar al usuario?')) {
-        fetch('EliminarUsuario?id=' + idSupervisor, {
+        fetch('EliminarUsuario?id=' + idUsuario, {
             method: 'DELETE',
         })
         .then(response => response.json())
