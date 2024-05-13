@@ -29,13 +29,14 @@ public class Sesion extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
 		sesion = request.getSession();
 		
 		String nombre = "Jabber";		//request.getParameter
 		
 		sesion.setAttribute("nombre", nombre);
 		sesion.setAttribute("edad", 8);
-		//se pueden poner todos los sesion.setAttribute que se necesiten	DaoSupervisor nombre
+		//se pueden poner todos los sesion.setAttribute que se necesiten	DaoUsuario.dameNombre
 		
 		String respuesta = (String) sesion.getAttribute("nombre");
 		int respuesta2 = (int) sesion.getAttribute("edad");
