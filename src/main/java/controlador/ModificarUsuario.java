@@ -51,6 +51,12 @@ public class ModificarUsuario extends HttpServlet {
 	 */
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		 Map<String, String[]> parameters = request.getParameterMap();
+		    for(String parameter : parameters.keySet()) {
+		        System.out.println("Parameter name: " + parameter);
+		        System.out.println("Parameter value: " + Arrays.toString(parameters.get(parameter)));
+		    }
+		
 	    // Leer el cuerpo de la solicitud y analizarlo como objeto JSON
 	    StringBuilder stringBuilder = new StringBuilder();
 	    String line;

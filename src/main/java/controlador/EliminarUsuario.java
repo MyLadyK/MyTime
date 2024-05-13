@@ -11,6 +11,8 @@ import modelo.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.Map;
 
 /**
  * Servlet implementation class EliminarUsuario
@@ -41,10 +43,19 @@ public class EliminarUsuario extends HttpServlet {
 	}
 	
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		 Map<String, String[]> parameters = request.getParameterMap();
+		    for(String parameter : parameters.keySet()) {
+		        System.out.println("Parameter name: " + parameter);
+		        System.out.println("Parameter value: " + Arrays.toString(parameters.get(parameter)));
+		    }
+		    
+		
+		
 	    int idUsuario = Integer.parseInt(request.getParameter("id"));
 
 	    Usuario us = new Usuario();
-	    us.setIdSupervisor(idUsuario);
+	    us.setIdUsuario(idUsuario);
 
 	    try {
 	        us.eliminar();

@@ -7,7 +7,7 @@ import dao.DaoUsuario;
 
 public class Usuario {
 
-	private int idUsuario;
+	public int idUsuario;
 	private String dni;
 	private String puesto;
 	private String nombre;
@@ -113,7 +113,7 @@ public class Usuario {
 		return idUsuario;
 	}
 
-	public void setIdSupervisor(int idUsuario) {
+	public void setIdUsuario(int idUsuario) {
 		this.idUsuario = idUsuario;
 	}
 

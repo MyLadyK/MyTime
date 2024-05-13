@@ -6,55 +6,8 @@
     <title>Altas Usuarios</title>
     <link rel="stylesheet" href="css/Comun.css" />
     <link rel="stylesheet" href="css/AltaUsuario.css" />
-
-    <!--<script type="text/javascript">
-	
-	function llamada (id, op){
-		fetch('InsertarUsuario?dni='+id+ "&op=" +op)		
-		.then (response => response.json())
-		.then (data => pintarDatos(data))
-	} 
-	
-	
-	
-	
-	function pintarDatos(datos){
-		let html = "<table border=1>";
-			for (let i=0;i<datos.length; i++){
-				html +="<tr><td>"+datos[i].puesto+"</td>"
-				html +="<td>"+datos[i].nombre+"</td>"
-				html +="<td>"+datos[i].apellido1+"</td>"
-				html +="<td>"+datos[i].apellido2+"</td>"
-				html +="</tr>"
-			}
-			
-			html +="</table>";
-			
-			document.getElementById
-			
-	}
     
 
-    window.onload = function() {	/*Esto es un evento que ejecuta la función que se especifique al cargarse, en este
-    								caso será la función llamada */
-    	llamada();
-		
-		
-		
-    
-    }
-    
-    
-    
-    window.onload = function (){
-		let dni = getParameterByName ("dni")
-    let op = getParameterByName ("op")
-		llamada(dni,op)
-	}
-    
-    </script>
-    
--->
   </head>
   <body>
     <nav>
@@ -106,5 +59,8 @@
         <a href="">mytime@mtmanagement.com</a>
       </div>
     </footer>
+    
+    <script src="js/AltaUsuario.js"></script>
+    
   </body>
 </html>

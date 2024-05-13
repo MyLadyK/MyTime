@@ -1,3 +1,6 @@
+
+
+
 function borrar(idUsuario) {
     if (confirm('¿Desea eliminar al usuario?')) {
         fetch('EliminarUsuario?id=' + idUsuario, {

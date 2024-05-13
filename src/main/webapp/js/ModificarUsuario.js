@@ -19,7 +19,7 @@ window.onload = function() {
         }
 
         var data = {
-            idSupervisor: formModificarUsuario.idUsuario.value,
+            idUsuario: formModificarUsuario.idUsuario.value,
             dni: formModificarUsuario.dni.value,
             puesto: formModificarUsuario.puesto.value,
             nombre: formModificarUsuario.nombre.value,

@@ -68,6 +68,8 @@ public class InsertarUsuario extends HttpServlet {
 			System.out.println("Error al añadir.");
 		}
 		
+		response.sendRedirect("http://localhost:8080/My_Time/ListaUsuario.html");
+		
 	}
 
 }
