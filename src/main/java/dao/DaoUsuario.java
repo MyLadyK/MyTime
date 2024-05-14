@@ -98,19 +98,12 @@ public class DaoUsuario {
 		return us;
 	}
 
-
-	
 	
 	public void modificar(Usuario us) throws SQLException {
 		
 		System.out.println("id de usuario: " +us.idUsuario);
-		//int idUsuario = Integer.parseInt("id");
 		
 	    PreparedStatement ps;
-	   // if("supervisor".equals(us.getPermiso())) {
-	    	
-	    	
-	    	//System.out.println(us.getDni() + us.getPuesto() + us.getNombre() + us.getApellido1() + us.getApellido2() + us.getCorreo() + us.getTelefono() + us.getIdUsuario());
 	    	
 	    	ps = con.prepareStatement(
 	                "UPDATE usuario SET dni = ?, puesto = ?, nombre = ?, apellido1 = ?, apellido2 = ?, correo = ?, telefono = ? WHERE idUsuario = ?");
@@ -123,35 +116,10 @@ public class DaoUsuario {
 		    ps.setString(7, us.getTelefono());
 		    ps.setInt(8, us.getIdUsuario());
 		   
-		    
 		    int filas = ps.executeUpdate();
 		    System.out.println("Se han modificado " +filas+ " filas");
 		    
-		    ps.close();
-		  /*  
-	    }else if("trabajador".equals(us.getPermiso())){
-	    	
-	    	ps = con.prepareStatement(
-	                "UPDATE usuario SET dni = ?, puesto = ?, nombre = ?, apellido1 = ?, apellido2 = ?, correo = ?, telefono = ? WHERE idUsuario = ?");
-		    
-	    	ps.setString(1, us.getDni());
-		    ps.setString(2, us.getPuesto());
-		    ps.setString(3, us.getNombre());
-		    ps.setString(4, us.getApellido1());
-		    ps.setString(5, us.getApellido2());
-		    ps.setString(6, us.getCorreo());
-		    ps.setString(7, us.getTelefono());
-		    ps.setInt(8, us.getIdUsuario());
-		    
-		    int filas = ps.executeUpdate();
-		    System.out.println("Se han modificado " +filas+ " filas");
-		    
-		    ps.close();
-	    	*/
-	  //  }else {
-	    //	System.out.println("No ha entrado en los condicionales de modificar");
-	  //  }
-	    
+		    ps.close();   
 	    
 	}
 	
@@ -160,35 +128,38 @@ public class DaoUsuario {
 		
 	    PreparedStatement ps;
 	    
-	  // if("supervisor".equals(sup.getPermiso())) {
 	        ps = con.prepareStatement("DELETE FROM usuario WHERE idUsuario = ?");
 	        ps.setInt(1, us.getIdUsuario());
 	        int filas = ps.executeUpdate();
 	        
 	        System.out.println("Se han eliminado " + filas + " filas");
 	        
-	        ps.close();
-	      
-	        /*
-	    } else if("trabajador".equals(sup.getPermiso())) {
-	        ps = con.prepareStatement("DELETE FROM trabajador WHERE idTrabajador = ?");
-	        ps.setString(1, idTrabajador);
-	        int filas = ps.executeUpdate();
-	        
-	        System.out.println("Se han eliminado " + filas + " filas");
-	        
-	        ps.close();
-	        
-	        
-	    } else {
-	        System.out.println("No ha entrado en los condicionales de eliminar");
-	    }
-	    */ 
+	        ps.close();  
+	    
 	}
 	
 
 	//Login
-	
+	public Usuario loginUsuario(String correo, String contrasena) {
+		Usuario usuario = null;
+		
+		 String query = "SELECT correo, permiso FROM usuario WHERE correo = ? AND contrasena = ?";
+		    try (PreparedStatement ps = con.prepareStatement(query)) {
+		        ps.setString(1, correo);
+		        ps.setString(2, contrasena);
+
+		        try (ResultSet resultSet = ps.executeQuery()) {
+		            if (resultSet.next()) {
+		                usuario = new Usuario(resultSet.getString("correo"), resultSet.getString("permiso"));
+		            }
+		        }
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
+
+		    return usuario;
+		
+	}
 	
 	
 	

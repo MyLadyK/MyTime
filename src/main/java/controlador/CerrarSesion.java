@@ -28,9 +28,12 @@ public class CerrarSesion extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		HttpSession sesion = request.getSession();
-
-		sesion.invalidate();
+		HttpSession session = request.getSession(false);
+        if (session != null) {
+            session.invalidate();
+        }
+        response.sendRedirect("Inicio.html");
+    
 	}
 
 	/**

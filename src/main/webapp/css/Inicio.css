@@ -1,52 +1,133 @@
 
 body{
     background-color: black;
-}
-.secAsi{
+    --color-principal:  rgb(80, 9, 165);
+    --color-secundario: solid yellow;
+    --color-error: red;
+    --radio-borde: 4px;
+
+
+    margin: 0;
     display: flex;
-}
-.logIn{
-    margin: 20px;
-    padding: 10px;
-    width: 30%;
-    height: 30%;
-    border: 1px solid yellow;
-    background-color: rgb(80, 9, 165);
-    display: flex;
-    flex-direction: column;
     align-items: center;
-}
-.sesion {
-    margin: 10px;
-    padding: 10px;
-    width: 100%;
-    display: flex;
     justify-content: center;
-    align-items: flex-start;
-    color: yellow;
-    font-weight: bold;
-   
+    font-size: 18px;
+    background: url(/My_Time/imagenes/LogoMiTiempo.jpeg);
+    background-size: cover;
+    
 }
-.formulario{
-    margin: 10px;
-    padding: 10px;
-    width: 90%;
-    border: 1px solid yellow;
-    color: yellow;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
-.logo{
-    margin: 10px;
-    padding: 10px;
+
+.contenedor{
     width: 400px;
-    height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    max-width: 400px;
+    margin: 1rem;
+    padding: 2rem;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+    border-radius: var(--radio-borde);
+    background: var(--color-principal);
+
 }
-.logo img{
+
+.contenedor,
+.formInput,
+.formBoton{
+    font: 500 1rem 'Quicksand', sans-serif;
+}
+
+
+.form> *:first-child{
+    margin-top: 0;
+}
+
+.form> *:last-child{
+    margin-bottom: 0;
+}
+
+.formTitulo{
+	color: darkgoldenrod;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.formMensaje{
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.formMensajeError{
+    color: var(--color-error);
+}
+
+.formMensajeAcierto{
+    color: green;
+}
+
+.formInput{
+    margin-bottom: 1rem;
+}
+
+.formCampos{
+    display: block;
     width: 100%;
-    height: 100%;  
+    padding: 0.75rem;
+    box-sizing: border-box;
+    border-radius: var(--radio-borde);
+    border: var(--color-secundario);
+    outline: none;
+    background: rgb(232, 232, 216);
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.formCampos:focus{
+    border-color: var(--color-principal);
+    background: #ffff;
+}
+
+.formCampoError{
+    color: var(--color-error);
+    border-color: var(--color-error);
+}
+
+.formCampoMensajeError{
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--color-error);
+}
+.formBoton {
+    width: 100%;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: var(--color-principal);
+    border: none;
+    border-radius: var(--radio-borde);
+    outline: none;
+    background-color: rgb(217, 160, 14);
+    cursor: pointer;
+}
+
+.formBoton:hover{
+    background: darkgoldenrod;
+}
+
+.formBoton:active{
+    transform: scale(0.98);
+}
+
+
+.formTextoLink{
+    margin: 0.2rem;
+    padding: 0.2rem;
+    text-align: center;
+
+}
+
+.formLink {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.formLink:hover{
+    text-decoration: underline;
 }

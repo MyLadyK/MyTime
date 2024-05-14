@@ -6,9 +6,15 @@
     <title>Inicio</title>
     <link rel="stylesheet" href="css/Comun.css" />
     <link rel="stylesheet" href="css/Inicio.css" />
+    <script src="js/Inicio.js" type="text/javascript"></script>
+
   </head>
 
   <body>
+    <div class="contenedor">
+
+      <!-- 
+
     <header>
       <h1>
         El tiempo es inagotable, pero el tuyo es único. Domínalo con propósito.
@@ -30,32 +36,31 @@
       </div>
     </nav>
 
-    <div class="secAsi">
-      <section class="logIn">
-        <div class="sesion"><p>Inicio de Sesión</p></div>
-        <div class="formulario">
-          <form name="login" action="Login" method="post">
-            <label for="correoUsuario">Usuario:</label><br />
-            <input type="text" id="correoUsuario" name="correoUsuario" /><br />
-            <label for="contrasena">Contraseña:</label><br />
-            <input type="password" id="contrasena" name="contrasena" /><br />
-            <input type="submit" value="Iniciar sesión" />
+    -->
+
+    
+        
+          <form class="form formOculto" name="Login" id="Login" method="post">
+            <h1 class="formTitulo">Iniciar Sesión</h1>
+            <div class="formMensaje formMensajeError"></div>
+            <div class="formInput">
+              <input type="text" class="formCampos" name="correo" autofocus placeholder="Correo electrónico"/>
+              <div class="formCampoMensajeError"> </div>
+            </div>
+            <div class="formInput">
+              <input type="password" class="formCampos" name="contrasena" autofocus placeholder="Contraseña"/>
+              <div class="formCampoMensajeError"> </div>
+            </div>
+            <button class="formBoton" type="submit" value="Iniciar sesión" >Continuar</button>
+            <div class="formTextoLink">
+              <p class="formTexto">
+				        <a href="#" class="formLink"> ¿Olvidaste tu contraseña? </a>
+			        </p>
+            </div>
           </form>
-        </div>
-      </section>
+        
 
-      <aside>
-        <div class="logo">
-          <img src="imagenes/LogoMiTiempo.jpeg" alt="Logo reloj derretido" />
-        </div>
-      </aside>
-    </div>
 
-    <footer>
-      <div clas="linksFooter">
-        <a href="">Conócenos</a>
-        <a href="">mytime@mtmanagement.com</a>
-      </div>
-    </footer>
+  </div>
   </body>
 </html>

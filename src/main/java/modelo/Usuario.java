@@ -104,6 +104,16 @@ public class Usuario {
 		this.apellido1 = apellido1;
 		this.apellido2 = apellido2;
 	}
+	
+	/**
+	 * Constructor para usar con el login
+	 * @param correo Atributo que indica la dirección de correo electrónico del <strong>Usuario</strong>
+	 * @param permiso Atributo que indica el tipo de permiso del <strong>Usuario</strong>
+	 */
+	public Usuario(String correo, String permiso) {
+		this.correo = correo;
+		this.permiso = permiso;
+	}
 
 	/**
 	 * Metodo de inclusion del idSupervisor en el objeto
