@@ -13,9 +13,9 @@ window.onload = function() {
             if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
     var permiso = this.getResponseHeader("permiso");
     if (permiso === "supervisor") {
-        window.location.href = "../PerfilSupervisor.html";
+        window.location.href = "/My_Time/PerfilSupervisor.html";
     } else if (permiso === "trabajador") {
-        window.location.href = "../PerfilTrabajador.html";
+        window.location.href = "/My_Time/PerfilTrabajador.html";
     }
 } else if (this.readyState === XMLHttpRequest.DONE) {
     alert("Error al iniciar sesión");

@@ -26,6 +26,8 @@ body{
     border-radius: var(--radio-borde);
     background: var(--color-principal);
 
+    margin-top: 10rem;
+
 }
 
 .contenedor,
@@ -121,13 +123,11 @@ body{
     text-align: center;
 
 }
-
 .formLink {
     color: black;
     text-decoration: none;
     cursor: pointer;
 }
-
 .formLink:hover{
     text-decoration: underline;
 }

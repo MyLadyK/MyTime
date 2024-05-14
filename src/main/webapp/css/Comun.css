@@ -5,14 +5,18 @@
 }
 
 header{
-    padding: 10px;
+    padding: 1rem;
     width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     background-color: rgb(80, 9, 165);
     color: yellow;
     text-align: center;
-    display: flex; 
-    justify-content: center;
-    align-items: center;
+    padding: 10px;
+    
+
 }
 nav{
     width: 100%;
@@ -23,6 +27,7 @@ nav{
     justify-content: start;
     position: sticky;
     top: 0;
+    margin-top: 5rem;
 }
 .linksNav{
     display: flex;
@@ -50,6 +55,7 @@ footer{
     justify-content: end;
     position: fixed;
     bottom: 0;
+    left: 0;
     
 }
 .linksFooter{
