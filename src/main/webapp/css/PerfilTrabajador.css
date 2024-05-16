@@ -1,1 +1,71 @@
-@charset "ISO-8859-1";
+.titulo {
+    text-align: center;
+}
+
+.botones{
+    width: 500px;
+    max-width: 500px;
+    height: 150px;
+    margin: 1rem auto;
+    padding: 2rem;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+    border-radius: var(--radio-borde);
+    font: 500 1rem 'Quicksand', sans-serif;
+    position: relative;
+    background-color: black;
+}
+
+.botonAlta {
+    margin: 1rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.botonUsuario {
+    margin: 1rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.botonTurno {
+    margin: 1rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.botonSolicitud {
+    margin: 1rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.botonTexto {
+    display: inline-block;
+    padding: 1rem;
+    background-color: var(--color-principal);
+    text-decoration: none;
+    color: darkgoldenrod;
+    border: 1px var(--color-secundario);
+
+    vertical-align: middle;
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    transition-duration: 0.3s;
+    transition-property: transform;
+    transition-timing-function: ease-out;
+
+    margin-bottom: 1rem;
+    border-radius: var(--radio-borde);
+    
+    width: 200px;
+    text-align: center;  
+    
+}
+
+  .boton:hover, .boton:focus, .boton:active {
+    transform: translateY(-8px);
+  }
