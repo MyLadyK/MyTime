@@ -33,23 +33,4 @@ document.getElementById('validar').addEventListener('click', function(event) {
 	
 	
 });
-	
-	
-	
-	/*
-	if (ok == true){
-		
-		let agregarMas = confirm("¿Deseas agregar más usuarios?");
-		if (agregarMas) {
-			
-			window.location.href = "http://localhost:8080/My_Time/AltaUsuario.html";
-		} else {
-			
-			window.location.href = "http://localhost:8080/My_Time/ListaUsuario.html";
-		}
-	} else {
-		// Previene el envío del formulario si la validación falla
-		event.preventDefault();
-	}
-});
-*/
+

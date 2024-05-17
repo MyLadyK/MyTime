@@ -79,4 +79,14 @@
     <servlet-name>CerrarSesion</servlet-name>
     <url-pattern>/CerrarSesion</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>InsertarTurno</display-name>
+    <servlet-name>InsertarTurno</servlet-name>
+    <servlet-class>controlador.InsertarTurno</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InsertarTurno</servlet-name>
+    <url-pattern>/InsertarTurno</url-pattern>
+  </servlet-mapping>
 </web-app>
