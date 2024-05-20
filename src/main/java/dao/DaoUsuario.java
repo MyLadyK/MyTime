@@ -139,7 +139,8 @@ public class DaoUsuario {
 	}
 	
 
-	//Login
+	/*
+	//Login funcional
 	public Usuario loginUsuario(String correo, String contrasena) {
 		Usuario usuario = null;
 		
@@ -160,9 +161,38 @@ public class DaoUsuario {
 		    return usuario;
 		
 	}
+	*/
 	
+	//Login con todo para datos de perfil
 	
-	
+	public Usuario loginUsuario(String correo, String contrasena) {
+	    Usuario usuario = null;
+	    String query = "SELECT idUsuario, dni, puesto, nombre, apellido1, apellido2, correo, telefono, contrasena, permiso FROM usuario WHERE correo = ? AND contrasena = ?";
+	    
+	    try (PreparedStatement ps = con.prepareStatement(query)) {
+	        ps.setString(1, correo);
+	        ps.setString(2, contrasena);
+
+	        try (ResultSet resultSet = ps.executeQuery()) {
+	            if (resultSet.next()) {
+	                usuario = new Usuario();
+	                usuario.setIdUsuario(resultSet.getInt("idUsuario"));
+	                usuario.setDni(resultSet.getString("dni"));
+	                usuario.setPuesto(resultSet.getString("puesto"));
+	                usuario.setNombre(resultSet.getString("nombre"));
+	                usuario.setApellido1(resultSet.getString("apellido1"));
+	                usuario.setApellido2(resultSet.getString("apellido2"));
+	                usuario.setCorreo(resultSet.getString("correo"));
+	                usuario.setTelefono(resultSet.getString("telefono"));
+	                usuario.setPermiso(resultSet.getString("permiso"));
+	            }
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+
+	    return usuario;
+	}
 	
 	
 
