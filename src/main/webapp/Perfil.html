@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Perfil del Usuario</title>
     <link rel="stylesheet" href="css/Comun.css">
+    <link rel="stylesheet" href="css/Perfil.css">
     <script src="js/Perfil.js"></script>
 </head>
 <body>
@@ -18,25 +19,51 @@
         <div class="linksNav">
             <a href="http://localhost:8080/My_Time/Inicio.html">Inicio</a>
             <a href="#">Perfil</a>
-            <a href="http://localhost:8080/My_Time/ListaUsuario.html">Listado</a>
-            <a href="http://localhost:8080/My_Time/AltaUsuario.html">Alta Usuarios</a>
             <a href="#">Turnos</a>
             <a href="#">Solicitudes</a>
             <a href="#">Soporte Técnico</a>
             <a href="Sesion?logout=true" id="logout">Cerrar Sesión</a>
         </div>
     </nav>
-    <div id="contenedorPerfil">
-        <p><strong>DNI:</strong> <span id="dni"></span></p>
-        <p><strong>Puesto:</strong> <span id="puesto"></span></p>
-        <p><strong>Nombre:</strong> <span id="nombre"></span></p>
-        <p><strong>Apellido 1:</strong> <span id="apellido1"></span></p>
-        <p><strong>Apellido 2:</strong> <span id="apellido2"></span></p>
-        <p><strong>Correo:</strong> <span id="correo"></span></p>
-        <p><strong>Teléfono:</strong> <span id="telefono"></span></p>
-        <p><strong>Contraseña:</strong> <span id="contrasena">********</span></p>
-        <p>¿Deseas <a href="#">cambiar tu contraseña</a>?</p>
-    </div>
+   <main>
+        <div class="contenedorPerfil">
+            <h2>Datos Personales</h2>
+            <div class="perfil-info">
+                <label for="dni">DNI:</label>
+                <span id="dni"></span>
+            </div>
+            <div class="perfil-info">
+                <label for="puesto">Puesto:</label>
+                <span id="puesto"></span>
+            </div>
+            <div class="perfil-info">
+                <label for="nombre">Nombre:</label>
+                <span id="nombre"></span>
+            </div>
+            <div class="perfil-info">
+                <label for="apellido1">Apellido 1:</label>
+                <span id="apellido1"></span>
+            </div>
+            <div class="perfil-info">
+                <label for="apellido2">Apellido 2:</label>
+                <span id="apellido2"></span>
+            </div>
+            <div class="perfil-info">
+                <label for="correo">Correo:</label>
+                <span id="correo"></span>
+            </div>
+            <div class="perfil-info">
+                <label for="telefono">Teléfono:</label>
+                <span id="telefono"></span>
+            </div>
+            <div class="perfil-info">
+                <label for="contrasena">Contraseña:</label>
+                <span>********</span>
+                <a href="#" id="cambiarContrasena">¿Deseas cambiar tu contraseña?</a>
+            </div>
+        </div>
+    </main>
+
     
 </body>
 </html>

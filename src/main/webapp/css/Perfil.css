@@ -1,0 +1,41 @@
+main {
+    padding: 2rem;
+}
+
+.contenedorPerfil {
+    background-color: rgb(255, 255, 230);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+h2 {
+    margin-bottom: 1rem;
+    color:  rgb(80, 9, 165);
+}
+
+.perfil-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.perfil-info label {
+    font-weight: bold;
+}
+
+.perfil-info span {
+    color: #555;
+}
+
+.perfil-info a {
+    color:  rgb(80, 9, 165);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.perfil-info a:hover {
+    text-decoration: underline;
+}

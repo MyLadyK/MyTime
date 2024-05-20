@@ -1,11 +1,13 @@
 body {
     --color-principal: rgb(80, 9, 165);
-    --color-secundario: solid yellow;
+    --color-secundario: yellow;
     --color-gold: darkgoldenrod;
     --radio-borde: 4px;
 
     margin: 0;
     font-size: 18px;
+    
+    background: radial-gradient(rgb(179, 122, 248), rgb(248, 214, 133));
 }
 
 header {
