@@ -89,4 +89,14 @@
     <servlet-name>InsertarTurno</servlet-name>
     <url-pattern>/InsertarTurno</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DatosPerfil</display-name>
+    <servlet-name>DatosPerfil</servlet-name>
+    <servlet-class>controlador.DatosPerfil</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DatosPerfil</servlet-name>
+    <url-pattern>/DatosPerfil</url-pattern>
+  </servlet-mapping>
 </web-app>

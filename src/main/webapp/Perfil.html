@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil del Usuario</title>
+    <link rel="stylesheet" href="css/Comun.css">
+    <script src="js/Perfil.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Mi Perfil</h1>
+    </header>
+    <nav>
+        <div class="logoMini">
+            <img src="imagenes/LogoMiTiempo.jpeg" alt="Logo reloj derretido" />
+        </div>
+        <div class="linksNav">
+            <a href="http://localhost:8080/My_Time/Inicio.html">Inicio</a>
+            <a href="#">Perfil</a>
+            <a href="http://localhost:8080/My_Time/ListaUsuario.html">Listado</a>
+            <a href="http://localhost:8080/My_Time/AltaUsuario.html">Alta Usuarios</a>
+            <a href="#">Turnos</a>
+            <a href="#">Solicitudes</a>
+            <a href="#">Soporte Técnico</a>
+            <a href="Sesion?logout=true" id="logout">Cerrar Sesión</a>
+        </div>
+    </nav>
+    <div id="contenedorPerfil">
+        <p><strong>DNI:</strong> <span id="dni"></span></p>
+        <p><strong>Puesto:</strong> <span id="puesto"></span></p>
+        <p><strong>Nombre:</strong> <span id="nombre"></span></p>
+        <p><strong>Apellido 1:</strong> <span id="apellido1"></span></p>
+        <p><strong>Apellido 2:</strong> <span id="apellido2"></span></p>
+        <p><strong>Correo:</strong> <span id="correo"></span></p>
+        <p><strong>Teléfono:</strong> <span id="telefono"></span></p>
+        <p><strong>Contraseña:</strong> <span id="contrasena">********</span></p>
+        <p>¿Deseas <a href="#">cambiar tu contraseña</a>?</p>
+    </div>
+    
+</body>
+</html>
