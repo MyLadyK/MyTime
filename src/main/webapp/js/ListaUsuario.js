@@ -24,7 +24,7 @@ function llamada(){
  function listarTablaCompleta(datos){
 	 
 	 let html = "<table class='tablaCompleta'>";
-	html += "<tr><th>ID Supervisor</th><th>DNI</th><th>Puesto</th><th>Nombre</th><th>Apellido 1</th><th>Apellido 2</th><th>Correo</th><th>Teléfono</th><th>Editar</th><th>Borrar</th></tr>";
+	html += "<tr><th>ID</th><th>DNI</th><th>Puesto</th><th>Nombre</th><th>Apellido 1</th><th>Apellido 2</th><th>Correo</th><th>Teléfono</th><th>Editar</th><th>Borrar</th></tr>";
 		for(let i=0;i<datos.length;i++){	
 						
 				html +="<tr><td>"+datos[i].idUsuario+"</td>";
@@ -35,8 +35,7 @@ function llamada(){
 				html += "<td>"+datos[i].apellido2+"</td>";
 				html += "<td>"+datos[i].correo+"</td>";
 				html += "<td>"+datos[i].telefono+"</td>";
-				html += "<td><a href='ModificarUsuario.html?id="+datos[i].idUsuario+"'>Editar</a></td><td><a href='javascript:borrar("+datos[i].idUsuario+")'>Borrar</a></td>";
-				html +="</tr>";
+				html += "<td><a href='ModificarUsuario.html?id="+datos[i].idUsuario+"'><i class='fas fa-edit'></i></a></td><td><a href='javascript:borrar("+datos[i].idUsuario+")'><i class='fas fa-trash'></i></a></td>";				html +="</tr>";
 				}
 		
 		html +="</table>";
