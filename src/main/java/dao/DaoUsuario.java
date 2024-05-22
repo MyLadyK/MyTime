@@ -8,19 +8,40 @@ import java.util.ArrayList;
 
 import com.google.gson.Gson;
 
-import modelo.Supervisor;
 import modelo.Usuario;
+
+/**
+ * Clase DaoUsuario para la gestión de usuarios en la base de datos
+ * Esta clase proporciona métodos para insertar, listar, modificar, eliminar y autenticar usuarios
+ * Utiliza el patrón Singleton para garantizar que solo exista una instancia de DaoUsuario
+ *
+ * @author Grisella Padilla Díaz
+ * @version 4.2
+ * @since 22-03-2024
+ * @see DBConexion
+ * @see Usuario
+ */
 
 public class DaoUsuario {
 	private Connection con = null;
 
-	// Singleton
 	private static DaoUsuario instance = null;
 
+	/**
+	 * Constructor de DaoUsuario
+	 * 
+	 * @throws SQLException al haber un error obteniendo la conexión
+	 */
 	public DaoUsuario() throws SQLException {
 		con = DBConexion.getConnection();
 	}
 
+	/**
+	 * Metodo para obtener la instancia de DaoUsuario haciendo uso del <strong>patrón Singleton</strong>
+	 * 
+	 * @return devuelve la instancia DaoUsuario
+	 * @throws SQLException si hay errores al crear la instancia
+	 */
 	public static DaoUsuario getInstance() throws SQLException {
 		if (instance == null) {
 			instance = new DaoUsuario();
@@ -28,7 +49,12 @@ public class DaoUsuario {
 		return instance;
 	}
 
-	// Insertar supervisor o trabajador
+	/**
+	 * Metodo que <strong>inserta</strong> un usuario en la base de datos
+	 * 
+	 * @param us es el usuarario a insertar
+	 * @throws SQLException si hay errores al insertar un usuario
+	 */
 	public void insertar(Usuario us) throws SQLException {
 
 		if ("supervisor".equals(us.getPermiso())) {
@@ -44,10 +70,9 @@ public class DaoUsuario {
 			ps.setString(8, us.getDni());
 			ps.setString(9, us.getPermiso());
 
-			// Ejecutar la query
-			int filas = ps.executeUpdate();
-			System.out.println("Se han añadido " + filas + " filas");
-
+			
+			ps.executeUpdate();
+			
 			ps.close();
 
 		} else if ("trabajador".equals(us.getPermiso())) {
@@ -64,20 +89,22 @@ public class DaoUsuario {
 			ps.setString(8, us.getDni());
 			ps.setString(9, us.getPermiso());
 
-			// Ejecutar la query
-			int filas = ps.executeUpdate();
-			System.out.println("Se han añadido " + filas + " filas");
+			
+			ps.executeUpdate();
 
 			ps.close();
 
-		} else {
-			System.out.println("No ha entrado en los condicionales.");
 		}
 
 	}
 
-	// Listar Usuarios con todos los datos (salvo contraseña)
 
+	/**
+	 * Metodo para <strong>listar</strong> los usuarios desde la base de datos
+	 * 
+	 * @return la lista de usuarios
+	 * @throws SQLException al haber errores listando usuarios
+	 */
 	public ArrayList<Usuario> listar() throws SQLException {
 
 		String sql = "SELECT * FROM usuario"; 
@@ -98,6 +125,12 @@ public class DaoUsuario {
 		return us;
 	}
 
+	/**
+	 * Metodo para <strong>modificar</strong> un usuario en la base de datos
+	 * 
+	 * @param us el usuario a modifcar
+	 * @throws SQLException si hay errores al modificar el usuario
+	 */
 	
 	public void modificar(Usuario us) throws SQLException {
 		
@@ -123,6 +156,12 @@ public class DaoUsuario {
 	    
 	}
 	
+	/**
+	 * Metodo para <strong>eliminar</strong> un usuario de la base de datos
+	 * 
+	 * @param us el usuario a eliminar
+	 * @throws SQLException si hay errores al eliminar el usuario
+	 */
 	
 	public void eliminar(Usuario us) throws SQLException {
 		
@@ -139,7 +178,13 @@ public class DaoUsuario {
 	}
 	
 	
-	//Login con todo para datos de perfil
+	/**
+	 * Metodo para <strong>iniciar</strong> sesión de un usuario
+	 * 
+	 * @param correo la direccion de correo electronico del usuario
+	 * @param contrasena la contraseña del usuario
+	 * @return el usuario que ha iniciado sesion
+	 */
 	
 	public Usuario loginUsuario(String correo, String contrasena) {
 	    Usuario usuario = null;
@@ -171,7 +216,12 @@ public class DaoUsuario {
 	}
 	
 
-	// JSON
+	/**
+	 * Metodo para obtener un <strong>JSON</strong> de todos los usuarios
+	 * 
+	 * @return un string en formato JSON de todos los usuarios
+	 * @throws SQLException si hay errores al obtener el JSON
+	 */
 
 	public String dameJson() throws SQLException {
 
