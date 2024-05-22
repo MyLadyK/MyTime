@@ -1,0 +1,15 @@
+.contenedorTexto {
+	margin: 30px;
+    width: 80%;
+    overflow: hidden;
+}
+
+h1 {
+	color: #333;
+	text-align: center;
+    padding: 20px 0;
+}
+p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}

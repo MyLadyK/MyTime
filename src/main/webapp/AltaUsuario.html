@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Altas Usuarios</title>
+    <link rel="stylesheet" href="css/Comun.css" />
+    <link rel="stylesheet" href="css/AltaUsuario.css" />
+    
+
+  </head>
+  <body>
+
+    <header>
+      <h1>
+        El tiempo es inagotable, pero el tuyo es único. Domínalo con propósito.
+      </h1>
+    </header>
+    
+    <nav>
+      <div class="logoMini">
+        <img src="imagenes/LogoMiTiempo.jpeg" alt="Logo reloj derretido" />
+      </div>
+      <div class="linksNav">
+        <a href="http://localhost:8080/My_Time/Inicio.html">Inicio</a>
+        <a href="">Perfil</a>
+        <a href="">Turnos</a>
+        <a href="">Solicitudes</a>
+        <a href="">Soporte Técnico</a>
+      </div>
+    </nav>
+
+    <div class="contenedorBody">
+      <h1>Formulario Alta Usuario</h1>
+      <div class="formulario">
+        <form id="AltaUsuario"
+          name="AltaUsuario"
+          action="InsertarUsuario"
+          method="post">
+          
+          <label for="permiso">Tipo de usuario:</label>
+          <select id="permiso" name="permiso">
+            <option value="supervisor">Supervisor</option>
+            <option value="trabajador">Trabajador</option>
+          </select>
+
+          <ul>
+            <li><label>DNI: </label> <input id="dni" type="text" name="dni" /></li>
+            <li><label>Puesto: </label> <input id="puesto" type="text" name="puesto" /></li>
+            <li><label>Nombre: </label> <input id="nombre" type="text" name="nombre" /></li>
+            <li><label>Primer apellido: </label><input id="apellido1" type="text" name="apellido1" /></li>
+            <li><label>Segundo apellido: </label><input id="apellido2" type="text" name="apellido2" /></li>
+            <li><label>Correo: </label><input id="correo" type="email" name="correo" /></li>
+            <li><label>Telefono: </label><input id="telefono" type="text" name="telefono" /></li>
+            <li><input id="validar" type="submit" value="Guardar" /></li>
+          </ul>
+        </form>
+      </div> 
+    </div>
+
+    <footer>
+      <div clas="linksFooter">
+        <a href="">Conócenos</a>
+        <a href="">mytime@mtmanagement.com</a>
+      </div>
+    </footer>
+    
+    <script src="js/AltaUsuario.js"></script>
+    
+  </body>
+</html>

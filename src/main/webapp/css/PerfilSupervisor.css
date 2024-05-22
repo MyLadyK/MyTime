@@ -1,0 +1,82 @@
+.titulo {
+    text-align: center;
+}
+
+.botones {
+    width: 100%;
+    max-width: 700px; /* Aumentado para pantallas grandes */
+    margin: 2rem auto; /* Aumentado para mejor separación en pantallas grandes */
+    padding: 2rem;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+    border-radius: var(--radio-borde);
+    font: 500 1rem 'Quicksand', sans-serif;
+    position: relative;
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap; /* Añadido para mejor distribución de botones */
+    justify-content: space-around; /* Distribuye los botones de manera uniforme */
+}
+
+.botonAlta,
+.botonUsuario,
+.botonTurno,
+.botonSolicitud {
+    margin: 1rem;
+    flex: 1 1 calc(50% - 2rem); /* Ajusta el tamaño de los botones y el margen */
+    position: static; /* Cambiado para evitar problemas de superposición */
+}
+
+.botonTexto {
+    display: inline-block;
+    padding: 1rem;
+    background-color: var(--color-principal);
+    text-decoration: none;
+    color: darkgoldenrod;
+    border: 1px var(--color-secundario);
+    vertical-align: middle;
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    transition-duration: 0.3s;
+    transition-property: transform;
+    transition-timing-function: ease-out;
+    border-radius: var(--radio-borde);
+    text-align: center;
+    width: 100%; /* Asegura que el botón ocupe todo el ancho del contenedor */
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+}
+
+.botonTexto:hover,
+.botonTexto:focus,
+.botonTexto:active {
+    transform: translateY(-8px);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .botones {
+        padding: 1rem;
+    }
+
+    .botonAlta,
+    .botonUsuario,
+    .botonTurno,
+    .botonSolicitud {
+        flex: 1 1 100%; /* Los botones ocupan todo el ancho del contenedor */
+        margin: 0.5rem 0;
+    }
+
+    .botonTexto {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .botones {
+        font-size: 0.875rem;
+    }
+
+    .botonTexto {
+        padding: 0.5rem;
+        font-size: 0.875rem;
+    }
+}

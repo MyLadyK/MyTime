@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Altas Usuarios</title>
+    <link rel="stylesheet" href="css/Comun.css" />
+    <link rel="stylesheet" href="css/GenerarTurno.css" />
+    
+
+  </head>
+  <body>
+    <nav>
+      <div class="logoMini">
+        <img src="imagenes/LogoMiTiempo.jpeg" alt="Logo reloj derretido" />
+      </div>
+      <div class="linksNav">
+        <a href="http://localhost:8080/My_Time/Inicio.html">Inicio</a>
+        <a href="">Perfil</a>
+        <a href="http://localhost:8080/My_Time/ListaUsuario.html">Listado</a>
+        <a href="http://localhost:8080/My_Time/AltaUsuario.html">Alta Usuarios</a>
+        <a href="">Turnos</a>
+        <a href="">Solicitudes</a>
+        <a href="">Soporte Técnico</a>
+      </div>
+    </nav>
+
+    <div class="contenedorBody">
+      <h1>Formulario Alta Usuario</h1>
+      <div class="formulario">
+        <form id="GenerarTurno"
+          name="GenerarTurno"
+          action="InsertarTurno"
+          method="post">
+          
+        <!--
+          <label for="permiso">Turno:</label>
+          <select id="permiso" name="permiso">
+            <option value="supervisor">Supervisor</option>
+            <option value="trabajador">Trabajador</option>
+          </select>
+          
+          -->
+
+          <ul>
+            <li><label>Año: </label> <input id="anno" type="text" name="anno" /></li>
+            <li><label>Mes: </label> <input id="mes" type="text" name="mes" /></li>
+            <li><label>Día de Inicio del Turno: </label><input id="diaInicio" type="text" name="diaInicio" /></li>
+            <li><label>Día de Finalización del Turno: </label><input id="diaFin" type="text" name="diaFin" /></li>
+             <li><label>Hora de Inicio: </label> <input id="horaInicio" type="text" name="horaInicio" /></li>
+            <li><label>Hora de Finalización: </label><input id="horaFin" type="text" name="horaFin" /></li>
+            <li><label>Número de trabajadores: </label><input id="numTrabajadores" type="text" name="numTrabajadores" /></li>
+            <li><input id="validar" type="submit" value="Guardar" /></li>
+          </ul>
+        </form>
+      </div> 
+    </div>
+
+    <footer>
+      <div clas="linksFooter">
+        <a href="">Conócenos</a>
+        <a href="">mytime@mtmanagement.com</a>
+      </div>
+    </footer>
+    
+    <script src="js/GenerarTurno.js"></script>
+    
+  </body>
+</html>

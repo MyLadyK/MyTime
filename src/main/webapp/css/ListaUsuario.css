@@ -1,0 +1,9 @@
+.tablaParcial, .tablaCompleta {
+    margin: 2%;
+    padding: 2%;
+    border-collapse: collapse; 
+}
+
+.tablaParcial td, .tablaParcial th, .tablaCompleta td, .tablaCompleta th {
+    border: 2px solid  rgb(80, 9, 165);
+}

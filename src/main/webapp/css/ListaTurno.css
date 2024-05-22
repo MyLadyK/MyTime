@@ -1,0 +1,9 @@
+.tablaTurno {
+    margin: 2%;
+    padding: 2%;
+    border-collapse: collapse; 
+}
+
+.tablaTurno td, .tablaTurno th {
+    border: 2px solid  rgb(80, 9, 165);
+}
