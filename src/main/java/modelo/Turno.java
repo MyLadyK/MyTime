@@ -1,9 +1,10 @@
 package modelo;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import dao.DaoTurno;
-import dao.DaoUsuario;
+
 
 public class Turno {
 	
@@ -53,6 +54,16 @@ public class Turno {
 		this.anno = anno;
 		this.mes = mes;
 		this.tipoTurno = tipoTurno;
+	}
+	
+	//Constructor listar turno NO
+	public Turno(int idTurno, int anno, String mes, String tipoTurno) {
+		super();
+		this.idTurno = idTurno;
+		this.anno = anno;
+		this.mes = mes;
+		this.tipoTurno = tipoTurno;
+	
 	}
 
 
@@ -142,19 +153,18 @@ public class Turno {
 		DaoTurno.getInstance().insertarTurno(this);
 		
 	}
-
-	//public void generarTurno(int anno, String mes, String diaInicio, String diaFin, String horaInicio, String horaFin,
-		//	int numTrabajadores) {
-//		DaoTurno.getInstance().generarTurno(this);
-		
-//	}
 	
-	@Override
-	public String toString() {
-		return "Turno [idTurno=" + idTurno + ", horaInicio=" + horaInicio + ", horaFin=" + horaFin + "]";
+	public ArrayList<Turno> listar() throws SQLException{
+		return DaoTurno.getInstance().listar();
 	}
 
-	
-	
+
+	@Override
+	public String toString() {
+		return "Turno [idTurno=" + idTurno + ", anno=" + anno + ", mes=" + mes + ", diaInicio=" + diaInicio
+				+ ", diaFin=" + diaFin + ", horaInicio=" + horaInicio + ", horaFin=" + horaFin + ", tipoTurno="
+				+ tipoTurno + "]";
+	}
+
 	
 }

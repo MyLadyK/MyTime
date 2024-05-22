@@ -2,10 +2,15 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Arrays;
 
+import com.google.gson.Gson;
+
 import modelo.Turno;
+import modelo.Usuario;
 
 public class DaoTurno {
 	private Connection con = null;
@@ -70,7 +75,35 @@ public class DaoTurno {
 
 		ps.close();
 	}
+	
+	
+	public ArrayList<Turno> listar() throws SQLException {
 
+		String sql = "SELECT * FROM turno"; 
+
+		PreparedStatement ps = con.prepareStatement(sql);
+		ResultSet result = ps.executeQuery();
+
+		ArrayList<Turno> t1 = null;
+
+		while (result.next()) {
+			if (t1 == null) {
+				t1 = new ArrayList<Turno>();
+			}
+			t1.add(new Turno(result.getInt("año"), result.getString("mes"), result.getString("tipoTurno")));
+		}
+		return t1;
+	}
+
+
+	public String dameJson() throws SQLException {
+
+		String txtJSON = "";
+		Gson gson = new Gson();
+		txtJSON = gson.toJson(this.listar());
+
+		return txtJSON;
+	}
 	
 }
 

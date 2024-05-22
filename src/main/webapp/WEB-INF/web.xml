@@ -99,4 +99,14 @@
     <servlet-name>DatosPerfil</servlet-name>
     <url-pattern>/DatosPerfil</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ListarTurno</display-name>
+    <servlet-name>ListarTurno</servlet-name>
+    <servlet-class>controlador.ListarTurno</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListarTurno</servlet-name>
+    <url-pattern>/ListarTurno</url-pattern>
+  </servlet-mapping>
 </web-app>

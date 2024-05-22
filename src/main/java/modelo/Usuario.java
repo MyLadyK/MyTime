@@ -77,6 +77,15 @@ public class Usuario {
 		this.permiso = permiso;
 	}
 
+	/**
+	 * Constructor para la listar de forma extensa los datos almacenados en la <strong> Base de Datos</strong>
+	 * @param puesto Atributo que indica el puesto de trabajo asignado al <strong>Usuario</strong>
+	 * @param nombre Atributo que indica el nombre del <strong>Usuario</strong>
+	 * @param apellido1 Atributo que indica el primer apellido del <strong>Usuario</strong>
+	 * @param apellido2 Atributo que indica el segundo apellido del <strong>Usuario</strong>
+	 * @param correo Atributo que indica la dirección de correo electrónico del <strong>Usuario</strong>
+	 * @param telefono Atributo que indica el número de teléfono del <strong>Usuario</strong>
+	 */
 	public Usuario(String dni, String puesto, String nombre, String apellido1, String apellido2,
 			String correo, String telefono) {
 		super();
@@ -94,7 +103,6 @@ public class Usuario {
 	 * @param nombre Atributo que indica el nombre del <strong>Usuario</strong>
 	 * @param apellido1 Atributo que indica el primer apellido del <strong>Usuario</strong>
 	 * @param apellido2 Atributo que indica el segundo apellido del <strong>Usuario</strong>
-	 * @param correo Atributo que indica la dirección de correo electrónico del <strong>Usuario</strong>
 	 */
 	
 	public Usuario(String puesto, String nombre, String apellido1, String apellido2, String correo) {
@@ -193,7 +201,7 @@ public class Usuario {
 
 	
 	/**
-	 * Metodo insertar, el cual <strong>añade</strong> los datos de los usuarios mediante un formulario 
+	 * Metodo insertar, el cual <strong>añade</strong> los datos de los usuarios a la base de datos mediante un formulario 
 	 * @throws SQLException
 	 */
 	public void insertar() throws SQLException {
@@ -202,8 +210,8 @@ public class Usuario {
 	
 	
 	/**
-	 * Metodo listar, el cual <strong>lista</strong> los datos de los usuarios previamente insertados
-	 * @return
+	 * Metodo listar, el cual <strong>lista</strong> los datos de los usuarios previamente insertados en la base de datos
+	 * @return Devuelve la <strong>lista de usuarios</strong> obtenida de la base de datos
 	 * @throws SQLException
 	 */
 		public ArrayList<Usuario> listar() throws SQLException{
@@ -214,11 +222,13 @@ public class Usuario {
 		public void modificar() throws SQLException {
 			DaoUsuario dao = new DaoUsuario();
 			dao.modificar(this);
+			// DaoUsuario.getInstance().modificar(this); // Con patrón Singleton
 		}	
 		
 		public void eliminar() throws SQLException {
 			DaoUsuario dao = new DaoUsuario();
 			dao.eliminar(this);
+			//DaoUsuario.getInstance().eliminar(this); // Con patrón Singleton
 		}
 	
 }

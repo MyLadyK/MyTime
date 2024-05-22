@@ -80,7 +80,7 @@ public class DaoUsuario {
 
 	public ArrayList<Usuario> listar() throws SQLException {
 
-		String sql = "SELECT * FROM usuario"; // Actualizar query para que incluya BD trabajadores
+		String sql = "SELECT * FROM usuario"; 
 
 		PreparedStatement ps = con.prepareStatement(sql);
 		ResultSet result = ps.executeQuery();
@@ -138,30 +138,6 @@ public class DaoUsuario {
 	    
 	}
 	
-
-	/*
-	//Login funcional
-	public Usuario loginUsuario(String correo, String contrasena) {
-		Usuario usuario = null;
-		
-		 String query = "SELECT correo, permiso FROM usuario WHERE correo = ? AND contrasena = ?";
-		    try (PreparedStatement ps = con.prepareStatement(query)) {
-		        ps.setString(1, correo);
-		        ps.setString(2, contrasena);
-
-		        try (ResultSet resultSet = ps.executeQuery()) {
-		            if (resultSet.next()) {
-		                usuario = new Usuario(resultSet.getString("correo"), resultSet.getString("permiso"));
-		            }
-		        }
-		    } catch (SQLException e) {
-		        e.printStackTrace();
-		    }
-
-		    return usuario;
-		
-	}
-	*/
 	
 	//Login con todo para datos de perfil
 	
@@ -194,7 +170,6 @@ public class DaoUsuario {
 	    return usuario;
 	}
 	
-	
 
 	// JSON
 
@@ -207,22 +182,5 @@ public class DaoUsuario {
 		return txtJSON;
 	}
 
-	/*
-	public Supervisor logIn (Supervisor sup, String contrasena) {
-		String sql = "SELECT FROM supervisor WHERE correo = ? AND contrasena=?";
-		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setString(1, sup.getCorreo());
-		ps.setString(2, contrasena);
-		
-		ResultSet rs = ps.executeQuery();
-		rs.next();
-		
-		Supervisor s = new Supervisor (rs.getString("correo"), rs.getString("contrasena"), rs.getString("permiso"));
-		
-		return s;
-		
-	}
-
-*/
 	
 }
