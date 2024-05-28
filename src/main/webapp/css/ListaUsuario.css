@@ -2,8 +2,31 @@
     margin: 2%;
     padding: 2%;
     border-collapse: collapse; 
+    border: none;
+    border-radius: var(--radio-borde);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+    background-color: white;
+
 }
 
 .tablaParcial td, .tablaParcial th, .tablaCompleta td, .tablaCompleta th {
     border: 2px solid  rgb(80, 9, 165);
+}
+#mostrarTodo:hover{
+	
+	background: darkgoldenrod;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: rgb(56, 28, 85);
+    border: none;
+    border-radius: var(--radio-borde);
+    outline: none;
+    background-color: rgb(217, 160, 14);
+    cursor: pointer;
+}
+.titulo{
+	color: darkgoldenrod;
+}
+h1{
+	color: var(--color-principal);
 }

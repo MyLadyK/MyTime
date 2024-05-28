@@ -5,15 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modificar Usuario</title>
     <link rel="stylesheet" href="css/Comun.css">
-   <!-- <link rel="stylesheet" href="css/ModificarUsuario.css"> -->
+   <link rel="stylesheet" href="css/ModificarUsuario.css">
     <script src="js/ModificarUsuario.js" type="text/javascript"></script>
 </head>
 <body>
+	<header>
+    <h1>
+      El tiempo es inagotable, pero el tuyo es único. Domínalo con propósito.
+    </h1>
+  </header>
+    
+	<nav>
+      <div class="logoMini">
+        <img src="imagenes/LogoMiTiempo.jpeg" alt="Logo reloj derretido" />
+      </div>
+      <div class="linksNav">
+        <a href="http://localhost:8080/My_Time/Inicio.html">Inicio</a>
+        <a href="http://localhost:8080/My_Time/Perfil.html">Perfil</a>
+        <a href="http://localhost:8080/My_Time/GenerarTurno.html">Turnos</a>
+        <a href="">Solicitudes</a>
+        <a href="">Soporte Técnico</a>
+        <a href="Sesion?logout=true" id="logout">Cerrar Sesión</a>
+      </div>
+    </nav>
     
     <div class="contenedorBody">
       <h1>Modificar Usuario</h1>
       <div class="formulario">
-        <form name="ModificarUsuario"action="ModificarUsuario">	<!--Quitamos method="post" -->
+        <form name="ModificarUsuario"action="ModificarUsuario">	
           
           <label for="permiso">Tipo de usuario:</label>
           <select id="permiso" name="permiso">
@@ -38,5 +57,13 @@
     </div>
 
     <button id="botonVolver">Volver</button>
+    
+     <footer>
+            <div clas="linksFooter">
+				<a href="http://localhost:8080/My_Time/TerminosCondiciones.html">Términos y Condiciones</a>
+              <a href="">Conócenos</a>
+              <a href="">mytime@mtmanagement.com</a>
+            </div>
+          </footer>
 </body>
 </html>

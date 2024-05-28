@@ -40,7 +40,6 @@ public class InsertarTurno extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// Obtienes los valores desde el formulario
 		int anno = Integer.parseInt(request.getParameter("anno"));
 		String mes = request.getParameter("mes");
 		String diaInicio = request.getParameter("diaInicio");
@@ -49,11 +48,9 @@ public class InsertarTurno extends HttpServlet {
 		String horaFin = request.getParameter("horaFin");
 		int numTrabajadores = Integer.parseInt(request.getParameter("numTrabajadores"));
 
-		// Llamas al método generarTurnos en DaoTurno con los valores obtenidos
 		try {
 			DaoTurno.getInstance().generarTurno(anno, mes, diaInicio, diaFin, horaInicio, horaFin, numTrabajadores);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

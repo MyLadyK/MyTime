@@ -1,5 +1,8 @@
 package modelo;
 
+/**
+ * 
+ */
 public class Solicitud {
 	
 	private int idSolicitud;
@@ -11,7 +14,12 @@ public class Solicitud {
 		
 	}
 	
-	
+	/**
+	 * 
+	 * @param idSolicitud
+	 * @param tipo
+	 * @param fecha
+	 */
 	public Solicitud(int idSolicitud, String tipo, String fecha) {
 		super();
 		this.idSolicitud = idSolicitud;
@@ -55,8 +63,4 @@ public class Solicitud {
 		return "Solicitud [idSolicitud=" + idSolicitud + ", tipo=" + tipo + ", fecha=" + fecha + "]";
 	}
 	
-	
-	
-	
-
 }

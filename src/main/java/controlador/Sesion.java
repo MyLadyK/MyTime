@@ -25,10 +25,9 @@ public class Sesion extends HttpServlet {
 	 */
 	public Sesion() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 
-	 @Override
 	    protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	            throws ServletException, IOException {
 	        String correo = request.getParameter("correo");
@@ -50,7 +49,7 @@ public class Sesion extends HttpServlet {
 	                session.setAttribute("usuario", usuario);
 	                response.addHeader("permiso", usuario.getPermiso());
 	                response.setStatus(HttpServletResponse.SC_OK);
-	                System.out.println("Usuario almacenado en la sesión: " + usuario.getNombre()); // Añade este log
+	                System.out.println("Usuario almacenado en la sesión: " + usuario.getNombre()); 
 
 	            } else {
 	                response.setStatus(HttpServletResponse.SC_FORBIDDEN);
