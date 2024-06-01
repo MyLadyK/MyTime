@@ -14,12 +14,10 @@ import modelo.Turno;
 /**
  * Clase DaoTurno para la gestión de turnos en la base de datos
  * Esta clase proporciona métodos para generar, insertar, listar turnos y convertirlos a formato JSON
- * Utiliza el patrón Singleton para garantizar que solo exista una instancia de DaoTurno
  *
  * @author Grisella Padilla Díaz
  * @version 4.2
  * @since 22-03-2024
- * @see DBConexion
  * @see Turno
  */
 

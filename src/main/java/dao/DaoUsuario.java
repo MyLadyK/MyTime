@@ -25,6 +25,7 @@ import modelo.Usuario;
 public class DaoUsuario {
 	private Connection con = null;
 
+	
 	private static DaoUsuario instance = null;
 
 	/**
