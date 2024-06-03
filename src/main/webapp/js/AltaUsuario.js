@@ -30,7 +30,5 @@ document.getElementById('validar').addEventListener('click', function(event) {
 		document.getElementById('correo').style.background = "white";
 	}
 	
-	
-	
 });
 

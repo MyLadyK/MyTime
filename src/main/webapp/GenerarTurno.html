@@ -3,46 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Altas Usuarios</title>
+    <title>Generar Turno</title>
     <link rel="stylesheet" href="css/Comun.css" />
     <link rel="stylesheet" href="css/GenerarTurno.css" />
     
 
   </head>
   <body>
+	  
+	  <header>
+      <h1>
+        El tiempo es inagotable, pero el tuyo es único. Domínalo con propósito.
+      </h1>
+    </header>
+    
     <nav>
       <div class="logoMini">
         <img src="imagenes/LogoMiTiempo.jpeg" alt="Logo reloj derretido" />
       </div>
       <div class="linksNav">
         <a href="http://localhost:8080/My_Time/Inicio.html">Inicio</a>
-        <a href="">Perfil</a>
-        <a href="http://localhost:8080/My_Time/ListaUsuario.html">Listado</a>
-        <a href="http://localhost:8080/My_Time/AltaUsuario.html">Alta Usuarios</a>
-        <a href="">Turnos</a>
+        <a href="http://localhost:8080/My_Time/Perfil.html">Perfil</a>
+        <a href="http://localhost:8080/My_Time/GenerarTurno.html">Turnos</a>
         <a href="">Solicitudes</a>
         <a href="">Soporte Técnico</a>
+        <a href="Sesion?logout=true" id="logout">Cerrar Sesión</a>
       </div>
     </nav>
 
     <div class="contenedorBody">
-      <h1>Formulario Alta Usuario</h1>
+      <h1>Crear Turno de Trabajo</h1>
       <div class="formulario">
         <form id="GenerarTurno"
           name="GenerarTurno"
           action="InsertarTurno"
           method="post">
           
-        <!--
-          <label for="permiso">Turno:</label>
-          <select id="permiso" name="permiso">
-            <option value="supervisor">Supervisor</option>
-            <option value="trabajador">Trabajador</option>
-          </select>
-          
-          -->
 
-          <ul>
+          <ul class= "tablaTurno">
             <li><label>Año: </label> <input id="anno" type="text" name="anno" /></li>
             <li><label>Mes: </label> <input id="mes" type="text" name="mes" /></li>
             <li><label>Día de Inicio del Turno: </label><input id="diaInicio" type="text" name="diaInicio" /></li>
@@ -56,12 +54,13 @@
       </div> 
     </div>
 
-    <footer>
-      <div clas="linksFooter">
-        <a href="">Conócenos</a>
-        <a href="">mytime@mtmanagement.com</a>
-      </div>
-    </footer>
+     <footer>
+    <div clas="linksFooter">
+		<a href="http://localhost:8080/My_Time/TerminosCondiciones.html"> Términos y Condiciones</a>
+      <a href="http://localhost:8080/My_Time/Contactanos.html">Conócenos</a>
+      <a href="">mytime@mtmanagement.com</a>
+    </div>
+  </footer>
     
     <script src="js/GenerarTurno.js"></script>
     

@@ -4,8 +4,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import dao.DaoTurno;
+import dao.DaoUsuario;
 
-
+/**
+ * Clase que representa un <strong>Turno</strong>
+ *
+ * @author Grisella Padilla Díaz
+ * @version 4.2
+ * @since 22-03-2024
+ * @see DaoTurno
+ */
 public class Turno {
 	
 	private int idTurno;
@@ -17,11 +25,25 @@ public class Turno {
 	private String horaFin;
 	private String tipoTurno;
 	
+	/**
+	 * Constructor vacio para crear el objeto turno
+	 */
 	public Turno() {
 		
 	}
 	
-	
+	/**
+	 * Constructor con todos los atributos
+	 * 
+	 * @param idTurno Atributo que indica el id de <strong>Turno</strong>
+	 * @param anno Atributo que indica el año de <strong>Turno</strong>
+	 * @param mes Atributo que indica el mes de <strong>Turno</strong>
+	 * @param diaInicio Atributo que indica el dia de la semana de inicio de <strong>Turno</strong>
+	 * @param diaFin Atributo que indica el dia de la semana que acaba el <strong>Turno</strong>
+	 * @param horaInicio Atributo que indica la hora a la que comienza el <strong>Turno</strong>
+	 * @param horaFin Atributo que indica la hora a la que finaliza el <strong>Turno</strong>
+	 * @param tipoTurno Atributo que indica el tipo de <strong>Turno</strong>
+	 */
 	public Turno(int idTurno, int anno, String mes, String diaInicio, String diaFin, String horaInicio, String horaFin, String tipoTurno) {
 		super();
 		this.idTurno = idTurno;
@@ -36,7 +58,17 @@ public class Turno {
 	}
 	
 	
-	//Constructor para insertar
+	/**
+	 * Constructor con todos los atributos salvo idTurno para insertar en la <strong>base de datos</strong>
+	 * 
+	 * @param anno Atributo que indica el año de <strong>Turno</strong>
+	 * @param mes Atributo que indica el mes de <strong>Turno</strong>
+	 * @param diaInicio Atributo que indica el dia de la semana de inicio de <strong>Turno</strong>
+	 * @param diaFin Atributo que indica el dia de la semana que acaba el <strong>Turno</strong>
+	 * @param horaInicio Atributo que indica la hora a la que comienza el <strong>Turno</strong>
+	 * @param horaFin Atributo que indica la hora a la que finaliza el <strong>Turno</strong>
+	 * @param tipoTurno Atributo que indica el tipo de <strong>Turno</strong>
+	 */
 	public Turno(int anno, String mes, String diaInicio, String diaFin, String horaInicio, String horaFin, String tipoTurno) {
 		super();
 		this.anno = anno;
@@ -48,7 +80,13 @@ public class Turno {
 		this.tipoTurno = tipoTurno;
 	}
 	
-	//Constructor crear turno
+	/**
+	 * Constructor para generar un turno
+	 * 
+	 * @param anno Atributo que indica el año de <strong>Turno</strong>
+	 * @param mes Atributo que indica el mes de <strong>Turno</strong>
+	 * @param tipoTurno Atributo que indica el tipo de <strong>Turno</strong>
+	 */
 	public Turno(int anno, String mes, String tipoTurno) {
 		super();
 		this.anno = anno;
@@ -56,7 +94,14 @@ public class Turno {
 		this.tipoTurno = tipoTurno;
 	}
 	
-	//Constructor listar turno NO
+	/**
+	 * Constructor para listar turnos
+	 * 
+	 * @param idTurno Atributo que indica el id de <strong>Turno</strong>
+	 * @param anno Atributo que indica el año de <strong>Turno</strong>
+	 * @param mes Atributo que indica el mes de <strong>Turno</strong>
+	 * @param tipoTurno Atributo que indica el tipo de <strong>Turno</strong>
+	 */
 	public Turno(int idTurno, int anno, String mes, String tipoTurno) {
 		super();
 		this.idTurno = idTurno;
@@ -149,16 +194,28 @@ public class Turno {
 		this.tipoTurno = tipoTurno;
 	}
 
+	/**
+	 * Metodo insertarTurno, el cual <strong>añade</strong> los datos del turno generado a la base de datos mediante un formulario 
+	 * @throws SQLException si se produce un error en la insercion de turnos
+	 */
 	public void insertarTurno() throws SQLException {
 		DaoTurno.getInstance().insertarTurno(this);
 		
 	}
 	
+	/**
+	 * Metodo listar, el cual <strong>lista</strong> los turnos previamente insertados en la base de datos
+	 * @return Devuelve la <strong>lista de turnos</strong> obtenida de la base de datos
+	 * @throws SQLException si se produce un error en la visualizacion de turnos
+	 */
 	public ArrayList<Turno> listar() throws SQLException{
 		return DaoTurno.getInstance().listar();
 	}
 
-
+	/**
+	 * Método para representar el turno como una cadena de texto
+	 * @return cadena de texto que representa al turno
+	 */
 	@Override
 	public String toString() {
 		return "Turno [idTurno=" + idTurno + ", anno=" + anno + ", mes=" + mes + ", diaInicio=" + diaInicio

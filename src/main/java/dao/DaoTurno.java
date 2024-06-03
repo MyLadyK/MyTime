@@ -10,17 +10,38 @@ import java.util.Arrays;
 import com.google.gson.Gson;
 
 import modelo.Turno;
-import modelo.Usuario;
+
+/**
+ * Clase DaoTurno para la gestión de turnos en la base de datos
+ * Esta clase proporciona métodos para generar, insertar, listar turnos y convertirlos a formato JSON
+ *
+ * @author Grisella Padilla Díaz
+ * @version 4.2
+ * @since 22-03-2024
+ * @see Turno
+ */
+
 
 public class DaoTurno {
 	private Connection con = null;
 	
 	private static DaoTurno instance = null;
 
+	/**
+	 * Constructor de DaoTurno.
+	 * 
+	 * @throws SQLException si hay un error al obtener la conexión
+	 */
 	public DaoTurno() throws SQLException {
 		con = DBConexion.getConnection();
 	}
 
+	/**
+	 * Metodo para obtener la instancia de DaoTurno mediante <strong>patron Singleton</strong>
+	 * 
+	 * @return la instancia de DaoTurno
+	 * @throws SQLException si hay un error al crear la instancia
+	 */
 	public static DaoTurno getInstance() throws SQLException {
 		if (instance == null) {
 			instance = new DaoTurno();
@@ -28,8 +49,18 @@ public class DaoTurno {
 		return instance;
 	}
 	
-	
-
+	/**
+	 * Metodo para <strong>generar</strong> un turno
+	 * 
+	 * @param anno el año del turno
+	 * @param mes el mes del turno
+	 * @param diaInicio el día de la semana que inicia el turno
+	 * @param diaFin el día de la semana que finaliza el turno
+	 * @param horaInicio la hora de inicio del turno
+	 * @param horaFin la hora de fin del turno
+	 * @param numTrabajadores el número de trabajadores en el turno
+	 * @throws SQLException si hay un error al generar el turno
+	 */
 	public void generarTurno (int anno, String mes, String diaInicio, String diaFin, String horaInicio, String horaFin, int numTrabajadores) throws SQLException {
 	    
 		String[] diasSemana = {"Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"};
@@ -56,6 +87,12 @@ public class DaoTurno {
 	    }
 	}
 
+	/**
+	 * Metodo para <strong>insertar</strong>  un turno en la base de datos
+	 * 
+	 * @param nuevoTurno el turno a insertar
+	 * @throws SQLException si hay un error al insertar el turno
+	 */
 	public void insertarTurno(Turno nuevoTurno) throws SQLException {
 
 		PreparedStatement ps = con.prepareStatement(
@@ -69,14 +106,18 @@ public class DaoTurno {
 		ps.setString(7, nuevoTurno.getTipoTurno());
 
 
-		// Ejecutar la query
-		int filas = ps.executeUpdate();
-		System.out.println("Se han añadido " + filas + " filas");
+		ps.executeUpdate();
+		
 
 		ps.close();
 	}
 	
-	
+	/**
+	 * Metodo para <strong>listar</strong> todos los turnos de la base de datos
+	 * 
+	 * @return una lista de turnos
+	 * @throws SQLException si hay un error al listar los turnos
+	 */
 	public ArrayList<Turno> listar() throws SQLException {
 
 		String sql = "SELECT * FROM turno"; 
@@ -96,6 +137,12 @@ public class DaoTurno {
 	}
 
 
+	/**
+	 * Metodo para obtener un <strong>JSON</strong> de todos los turnos
+	 * 
+	 * @return un string en formato JSON de todos los turnos
+	 * @throws SQLException si hay un error al obtener el JSON
+	 */
 	public String dameJson() throws SQLException {
 
 		String txtJSON = "";

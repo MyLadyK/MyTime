@@ -5,9 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import modelo.Supervisor;
 import modelo.Usuario;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -43,14 +41,6 @@ public class EliminarUsuario extends HttpServlet {
 	}
 	
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		 Map<String, String[]> parameters = request.getParameterMap();
-		    for(String parameter : parameters.keySet()) {
-		        System.out.println("Parameter name: " + parameter);
-		        System.out.println("Parameter value: " + Arrays.toString(parameters.get(parameter)));
-		    }
-		    
-		
 		
 	    int idUsuario = Integer.parseInt(request.getParameter("id"));
 

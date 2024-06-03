@@ -23,10 +23,11 @@
       </div>
       <div class="linksNav">
         <a href="http://localhost:8080/My_Time/Inicio.html">Inicio</a>
-        <a href="">Perfil</a>
-        <a href="">Turnos</a>
+        <a href="http://localhost:8080/My_Time/Perfil.html">Perfil</a>
+        <a href="http://localhost:8080/My_Time/GenerarTurno.html">Turnos</a>
         <a href="">Solicitudes</a>
         <a href="">Soporte Técnico</a>
+        <a href="Sesion?logout=true" id="logout">Cerrar Sesión</a>
       </div>
     </nav>
 
@@ -44,7 +45,7 @@
             <option value="trabajador">Trabajador</option>
           </select>
 
-          <ul>
+          <ul class="formularioDatos">
             <li><label>DNI: </label> <input id="dni" type="text" name="dni" /></li>
             <li><label>Puesto: </label> <input id="puesto" type="text" name="puesto" /></li>
             <li><label>Nombre: </label> <input id="nombre" type="text" name="nombre" /></li>
@@ -58,12 +59,13 @@
       </div> 
     </div>
 
-    <footer>
-      <div clas="linksFooter">
-        <a href="">Conócenos</a>
-        <a href="">mytime@mtmanagement.com</a>
-      </div>
-    </footer>
+     <footer>
+    <div clas="linksFooter">
+		<a href="http://localhost:8080/My_Time/TerminosCondiciones.html"> Términos y Condiciones</a>
+      <a href="http://localhost:8080/My_Time/Contactanos.html">Conócenos</a>
+      <a href="">mytime@mtmanagement.com</a>
+    </div>
+  </footer>
     
     <script src="js/AltaUsuario.js"></script>
     

@@ -3,8 +3,17 @@ package modelo;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import dao.DBConexion;
 import dao.DaoUsuario;
 
+/**
+ * Clase que representa un <strong>Usuario</strong>
+ *
+ * @author Grisella Padilla Díaz
+ * @version 4.2
+ * @since 22-03-2024
+ * @see DaoUsuario
+ */
 public class Usuario {
 
 	public int idUsuario;
@@ -27,6 +36,7 @@ public class Usuario {
 	
 	/**
 	 * Constructor con todos los atributos
+	 * 
 	 * @param idUsuario Atributo que indica el id de <strong>Usuario</strong>
 	 * @param dni Atributo que indica el dni del <strong>Usuario</strong>
 	 * @param puesto Atributo que indica el puesto de trabajo asignado al <strong>Usuario</strong>
@@ -54,6 +64,7 @@ public class Usuario {
 	
 	/**
 	 * Constructor con todos los atributos salvo idUsuario para insertar en la <strong>Base de Datos</strong> 
+	 * 
 	 * @param dni Atributo que indica el dni del <strong>Usuario</strong>
 	 * @param puesto Atributo que indica el puesto de trabajo asignado al <strong>Usuario</strong>
 	 * @param nombre Atributo que indica el nombre del <strong>Usuario</strong>
@@ -79,6 +90,7 @@ public class Usuario {
 
 	/**
 	 * Constructor para la listar de forma extensa los datos almacenados en la <strong> Base de Datos</strong>
+	 * 
 	 * @param puesto Atributo que indica el puesto de trabajo asignado al <strong>Usuario</strong>
 	 * @param nombre Atributo que indica el nombre del <strong>Usuario</strong>
 	 * @param apellido1 Atributo que indica el primer apellido del <strong>Usuario</strong>
@@ -99,6 +111,7 @@ public class Usuario {
 	}
 	/**
 	 * Constructor para la listar de forma escueta los datos almacenados en la <strong> Base de Datos</strong>
+	 * 
 	 * @param puesto Atributo que indica el puesto de trabajo asignado al <strong>Usuario</strong>
 	 * @param nombre Atributo que indica el nombre del <strong>Usuario</strong>
 	 * @param apellido1 Atributo que indica el primer apellido del <strong>Usuario</strong>
@@ -115,6 +128,7 @@ public class Usuario {
 	
 	/**
 	 * Constructor para usar con el login
+	 * 
 	 * @param correo Atributo que indica la dirección de correo electrónico del <strong>Usuario</strong>
 	 * @param permiso Atributo que indica el tipo de permiso del <strong>Usuario</strong>
 	 */
@@ -123,10 +137,6 @@ public class Usuario {
 		this.permiso = permiso;
 	}
 
-	/**
-	 * Metodo de inclusion del idSupervisor en el objeto
-	 * @return devuelve el idSupervisor de tipo entero
-	 */
 	public int getIdUsuario() {
 		return idUsuario;
 	}
@@ -202,7 +212,7 @@ public class Usuario {
 	
 	/**
 	 * Metodo insertar, el cual <strong>añade</strong> los datos de los usuarios a la base de datos mediante un formulario 
-	 * @throws SQLException
+	 * @throws SQLException si se produce un error en la insercion de usuarios
 	 */
 	public void insertar() throws SQLException {
 		DaoUsuario.getInstance().insertar(this); // Con patrón Singleton
@@ -212,23 +222,39 @@ public class Usuario {
 	/**
 	 * Metodo listar, el cual <strong>lista</strong> los datos de los usuarios previamente insertados en la base de datos
 	 * @return Devuelve la <strong>lista de usuarios</strong> obtenida de la base de datos
-	 * @throws SQLException
+	 * @throws SQLException si se produce un error en la visualizacion de usuarios
 	 */
-		public ArrayList<Usuario> listar() throws SQLException{
-			return DaoUsuario.getInstance().listar();
-		}
+	public ArrayList<Usuario> listar() throws SQLException{
+		return DaoUsuario.getInstance().listar();
+	}
 	
-		
-		public void modificar() throws SQLException {
-			DaoUsuario dao = new DaoUsuario();
-			dao.modificar(this);
-			// DaoUsuario.getInstance().modificar(this); // Con patrón Singleton
-		}	
-		
-		public void eliminar() throws SQLException {
-			DaoUsuario dao = new DaoUsuario();
-			dao.eliminar(this);
-			//DaoUsuario.getInstance().eliminar(this); // Con patrón Singleton
-		}
+	/**
+	 * Metodo modificar, el cual <strong>modifica</strong> los datos de los usuarios previamente insertados en la base de datos	
+	 * @throws SQLException si se produce un error en la modificacion de usuarios
+	 */
+	public void modificar() throws SQLException {
+		 DaoUsuario.getInstance().modificar(this); 
+	}	
+	
+	/**
+	 * Metodo eliminar, el cual <strong>elimina</strong> los datos de los usuarios previamente insertados en la base de datos
+	 * @throws SQLException si se produce un error en la insercion de usuarios
+	 */
+	public void eliminar() throws SQLException {
+		DaoUsuario.getInstance().eliminar(this); 
+	}
+	
+
+	/**
+	 * Método para representar el usuario como una cadena de texto
+	 * @return cadena de texto que representa al usuario
+	 */
+	@Override
+	public String toString() {
+		return "Usuario [idUsuario=" + idUsuario + ", dni=" + dni + ", puesto=" + puesto + ", nombre=" + nombre
+				+ ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", correo=" + correo + ", telefono="
+				+ telefono + ", permiso=" + permiso + "]";
+	}
+	
 	
 }

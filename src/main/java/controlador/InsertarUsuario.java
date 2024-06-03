@@ -10,7 +10,6 @@ import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import modelo.Supervisor;
 import modelo.Usuario;
 
 /**
@@ -38,16 +37,9 @@ public class InsertarUsuario extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		  // Imprime todos los parámetros del formulario
-	    Map<String, String[]> parameters = request.getParameterMap();
-	    for(String parameter : parameters.keySet()) {
-	        System.out.println("Parameter name: " + parameter);
-	        System.out.println("Parameter value: " + Arrays.toString(parameters.get(parameter)));
-	    }
-	    
-		//Añadir Usuario
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+
 		String dni = request.getParameter("dni");
 		String puesto = request.getParameter("puesto");
 		String nombre = request.getParameter("nombre");
@@ -59,7 +51,6 @@ public class InsertarUsuario extends HttpServlet {
 		
 		
 		Usuario us1 = new Usuario (dni, puesto, nombre, apellido1, apellido2, correo, telefono, permiso);
-		System.out.println("Se ha añadido usuario: " +us1.toString());
 		
 		try {
 			us1.insertar();
