@@ -18,7 +18,7 @@ header {
     left: 0;
     right: 0;
     background-color: var(--color-principal);
-    color: yellow;
+    color: var(--color-gold);
     text-align: center;
     padding: 10px;
 }

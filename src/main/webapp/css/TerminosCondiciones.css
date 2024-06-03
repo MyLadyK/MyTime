@@ -1,3 +1,7 @@
+body{
+	padding-top: 65px;
+}
+
 .contenedorTexto {
 	margin: 30px;
     width: 80%;
@@ -5,7 +9,7 @@
 }
 
 h1 {
-	color: #333;
+	color: darkgoldenrod;
 	text-align: center;
     padding: 20px 0;
 }
