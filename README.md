@@ -1,4 +1,4 @@
-Memoria del proyecto integrador del primer curso de Desarrollo de Aplicaciones Multiplataforma. El proyecto, denominado 
+Proyecto integrador del primer curso de Desarrollo de Aplicaciones Multiplataforma. El proyecto, denominado 
 My Time, consiste en un portal web diseñado para la gestión de turnos de trabajo en una empresa. Se presenta como una 
 herramienta integral que permite a los supervisores crear, publicar y modificar turnos de trabajo, así como gestionar 
 solicitudes de cambios, días libres y vacaciones de los empleados. Está desarrollado con tecnologías web actuales y 
