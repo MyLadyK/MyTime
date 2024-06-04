@@ -216,7 +216,26 @@ public class DaoUsuario {
 	    return usuario;
 	}
 	
-
+	/**
+	 * Metodo que obtiene el nombre del usuario dado su idUsuario
+	 * 
+	 * @param idUsuario
+	 * @return nombre del usuario
+	 * @throws SQLException si hay un error en la obtención del nombre
+	 */
+	 public String obtenerNombreUsuario(int idUsuario) throws SQLException {
+	        String sql = "SELECT nombre FROM usuario WHERE idUsuario = ?";
+	        PreparedStatement ps = con.prepareStatement(sql);
+	        ps.setInt(1, idUsuario);
+	        ResultSet rs = ps.executeQuery();
+	        
+	        if (rs.next()) {
+	            return rs.getString("nombre");
+	        } else {
+	            return null;
+	        }
+	    }
+	
 	/**
 	 * Metodo para obtener un <strong>JSON</strong> de todos los usuarios
 	 * 

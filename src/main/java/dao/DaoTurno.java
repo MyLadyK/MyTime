@@ -17,7 +17,7 @@ import modelo.Turno;
  *
  * @author Grisella Padilla Díaz
  * @version 4.2
- * @since 22-03-2024
+ * @since 28-04-2024
  * @see Turno
  */
 
@@ -66,8 +66,11 @@ public class DaoTurno {
 		String[] diasSemana = {"Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"};
 	    int indiceDiaInicio = Arrays.asList(diasSemana).indexOf(diaInicio);
 	    int indiceDiaFin = Arrays.asList(diasSemana).indexOf(diaFin);
+	    
+	    ArrayList<Integer> trabajadores = obtenerTrabajadores();
+        int numTrabajadoresDB = trabajadores.size();
 
-	    for (int trabajador = 1; trabajador <= numTrabajadores; trabajador++) {
+	    for (int trabajador = 0; trabajador < numTrabajadores; trabajador++) {
 	        String tipoTurno = "";
 
 	        int horaInicioInt = Integer.parseInt(horaInicio.split(":")[0]);
@@ -81,8 +84,9 @@ public class DaoTurno {
 	            tipoTurno = "Noche";
 	        }
 
-	            Turno nuevoTurno = new Turno(anno, mes, diaInicio, diaFin, horaInicio, horaFin, tipoTurno);
-	            insertarTurno(nuevoTurno);
+	        int idUsuario = trabajadores.get(trabajador % numTrabajadoresDB);
+            Turno nuevoTurno = new Turno(anno, mes, diaInicio, diaFin, horaInicio, horaFin, tipoTurno, idUsuario);
+            insertarTurno(nuevoTurno);
 	            
 	    }
 	}
@@ -96,7 +100,7 @@ public class DaoTurno {
 	public void insertarTurno(Turno nuevoTurno) throws SQLException {
 
 		PreparedStatement ps = con.prepareStatement(
-				"INSERT turno (año, mes, diaInicio, diaFin, horaInicio, horaFin, tipoTurno) VALUES (?,?,?,?,?,?,?)");
+				"INSERT turno (año, mes, diaInicio, diaFin, horaInicio, horaFin, tipoTurno, idUsuario) VALUES (?,?,?,?,?,?,?,?)");
 		ps.setInt(1, nuevoTurno.getAnno());
 		ps.setString(2, nuevoTurno.getMes());
 		ps.setString(3, nuevoTurno.getDiaInicio());
@@ -104,6 +108,7 @@ public class DaoTurno {
 		ps.setString(5, nuevoTurno.getHoraInicio());
 		ps.setString(6, nuevoTurno.getHoraFin());
 		ps.setString(7, nuevoTurno.getTipoTurno());
+		ps.setInt(8, nuevoTurno.getIdUsuario());
 
 
 		ps.executeUpdate();
@@ -131,7 +136,7 @@ public class DaoTurno {
 			if (t1 == null) {
 				t1 = new ArrayList<Turno>();
 			}
-			t1.add(new Turno(result.getInt("año"), result.getString("mes"), result.getString("tipoTurno")));
+			t1.add(new Turno(result.getInt("año"), result.getString("mes"), result.getString("tipoTurno"), result.getInt("idUsuario")));
 		}
 		return t1;
 	}
@@ -151,6 +156,23 @@ public class DaoTurno {
 
 		return txtJSON;
 	}
+	
+	/**
+	 * Metodo para obtener usuarios mediante el idUsuario
+	 * @return una lista de trabajadores 
+	 * @throws SQLException si hay un error al obtener los usuarios 
+	 */
+	private ArrayList<Integer> obtenerTrabajadores() throws SQLException {
+        String sql = "SELECT idUsuario FROM usuario";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+
+        ArrayList<Integer> trabajadores = new ArrayList<>();
+        while (rs.next()) {
+            trabajadores.add(rs.getInt("idUsuario"));
+        }
+        return trabajadores;
+    }
 	
 }
 

@@ -8,12 +8,13 @@ function llamada(){
  function listarTablaTurno(datos){
     let html = "<table class='tablaTurno'>";
     
-    html += "<tr><th>Año</th><th>Mes</th><th>Horario</th></tr>";
+    html += "<tr><th>Año</th><th>Mes</th><th>Horario</th><th>Trabajador</th></tr>";
     
     for(let i=0;i<datos.length;i++){    
         html += "<tr><td>"+datos[i].anno+"</td>";
         html += "<td>"+datos[i].mes+"</td>";
         html += "<td>"+datos[i].tipoTurno+"</td>";
+        html += "<td>"+datos[i].nombreUsuario+"</td>";
     }
     html +="</table>";
     document.getElementById("listado").innerHTML = html;
