@@ -41,18 +41,20 @@ public class InsertarTurno extends HttpServlet {
 			throws ServletException, IOException {
 
 		int anno = Integer.parseInt(request.getParameter("anno"));
-		String mes = request.getParameter("mes");
-		String diaInicio = request.getParameter("diaInicio");
-		String diaFin = request.getParameter("diaFin");
-		String horaInicio = request.getParameter("horaInicio");
-		String horaFin = request.getParameter("horaFin");
-		int numTrabajadores = Integer.parseInt(request.getParameter("numTrabajadores"));
+        String mes = request.getParameter("mes");
+        String diaInicio = request.getParameter("diaInicio");
+        String diaFin = request.getParameter("diaFin");
+        String horaInicio = request.getParameter("horaInicio");
+        String horaFin = request.getParameter("horaFin");
+        int numTrabajadores = Integer.parseInt(request.getParameter("numTrabajadores"));
 
-		try {
-			DaoTurno.getInstance().generarTurno(anno, mes, diaInicio, diaFin, horaInicio, horaFin, numTrabajadores);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-
+        try {
+            DaoTurno.getInstance().generarTurno(anno, mes, diaInicio, diaFin, horaInicio, horaFin, numTrabajadores);
+            response.sendRedirect("http://localhost:8080/My_Time/ListaTurno.html");  
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Fallo en servlet InsertarTurno.");
+            
+        }
+    }
 }
